@@ -16,6 +16,15 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :role, collection: User::ROLES %>
+    <%= f.input :first_name%>
+    <%= f.input :last_name%>
+    <%= f.input :username%>
+    <%= f.input :description%>
+    <% if :role == "host" %>
+      <%= f.input :host_id_number%>
+    <% elsif :role == "refugee" %>
+      <%= f.input :refugee_id_number%>
+    <% end %>
   </div>
 
   <div class="form-actions">
