@@ -18,13 +18,17 @@ puts "Creating 10 users..."
   user = User.create(
     email: Faker::Internet.email,
     password: "password",
-    role: ["host", "refugee"].sample
+    role: ["host", "refugee"].sample,
+    username: Faker::Internet.username,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
   )
   puts "Creating user with id #{user.id}"
   if user.role == "host"
     2.times do
       room = Room.create(
-        host_id: user.id
+        host_id: user.id,
+        beds: rand(1..10)
       )
       puts "Creating room with id #{room.id}"
     end
@@ -34,7 +38,9 @@ puts "Creating 10 users..."
     if user.role == "refugee"
       booking = Booking.create(
         room_id: i,
-        refugee_id: user.id
+        refugee_id: user.id,
+        arrival_date: Time.now,
+        departure_date: Time.now + (24 * 60 * 60)
       )
       i += 1
     else
