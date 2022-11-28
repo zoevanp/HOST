@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_123648) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_150118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "arrival_date"
+    t.date "departure_date"
+    t.bigint "room_id", null: false
+    t.bigint "refugee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["refugee_id"], name: "index_bookings_on_refugee_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "beds"
+    t.bigint "host_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_rooms_on_host_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +41,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_123648) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "image"
+    t.text "description"
+    t.string "host_id_number"
+    t.string "refugee_id_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "rooms"
+  add_foreign_key "bookings", "users", column: "refugee_id"
+  add_foreign_key "rooms", "users", column: "host_id"
 end
