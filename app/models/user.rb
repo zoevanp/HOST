@@ -15,9 +15,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: true
   validates :role, presence: true
-  if :role == "host"
-    validates :host_id_number, presence: true
-  elsif :role == "refugee"
-    validates :refugee_id_number, presence: true
-  end
+  # if :role == "host"
+  #   validates :host_id_number, presence: true
+  # elsif :role == "refugee"
+  #   validates :refugee_id_number, presence: true
+  # end
 end
