@@ -14,4 +14,7 @@
   <hr>
   <% end %>
 
+  <% if current_user.role == 'host' %>
+  <%= link_to "All my rooms", rooms_path %>
+  <% end %>
 </div>
