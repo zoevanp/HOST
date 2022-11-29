@@ -1,14 +1,16 @@
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-muted">© 2022 HOST, Inc</p>
-    <a href="#" class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"></a>
-    <ul class="nav col-md-6 justify-content-end">
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">All rooms</a></li>
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">About Us</a></li>
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">FAQs</a></li>
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Login</a></li>
-      <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Sign up</a></li>
-    </ul>
-  </footer>
+<div class="footer">
+<div class="border-div">
+  <div class="footer-copyright">
+    <p>© 2022 HOST, Inc </p>
+  </div>
+  <div class="footer-links">
+    <%= link_to "Home", root_path %>
+    <%= link_to "All rooms", rooms_path %>
+    <% if current_user %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+  </div>
+</div>
 </div>
