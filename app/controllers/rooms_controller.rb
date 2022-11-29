@@ -47,5 +47,4 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:beds)
   end
-
 end
