@@ -1,3 +1,4 @@
+require 'Date'
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
@@ -18,8 +19,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.refugee_id = current_user.id
     @rooms = Room.all
-    @rooms.select do |room|
-      if room.bookings == []
+    @rooms.each do |room|
+      if room.bookings  == []
+        @booking.room_id = room.id
+        room.availability = false
+      elsif (room.bookings.last.departure_date - Date.today).negative?
+        room.availability = false
+      else
+        room.availability = true
         @booking.room_id = room.id
       end
     end
@@ -27,7 +34,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      redirect_to root_path
+      raise
     end
   end
 
