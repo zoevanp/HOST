@@ -1,11 +1,5 @@
 require "faker"
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
 puts "Destroying database..."
 puts "Destroying all users..."
 User.destroy_all
@@ -33,26 +27,8 @@ puts "Creating 10 users..."
       puts "Creating room with id #{room.id}"
     end
   end
-  i = 1
-  5.times do
-    if user.role == "refugee"
-      booking = Booking.create(
-        room_id: i,
-        refugee_id: user.id,
-        arrival_date: Time.now,
-        departure_date: Time.now + (24 * 60 * 60)
-      )
-      i += 1
-    else
-      next
-    end
-    puts "Creating booking with id #{booking.id}"
-  end
 end
 puts "Finished "
-
-
-
   # create_table "bookings", force: :cascade do |t|
   #   t.date "arrival_date"
   #   t.date "departure_date"

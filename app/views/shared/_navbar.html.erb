@@ -5,7 +5,9 @@
 
   <div class="profile">
   <form action="/refugees" accept-charset="UTF-8" method="get">
-
+      <% if current_user %>
+      <%= current_user.role %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,6 +16,7 @@
           <div style="display: flex; align-items: center; padding: 10px;">
           <%# form.text_field :address, placeholder="Location" style="color: #FF5D00; border: none; background: none; outline:none; width: 120px;", input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
             <input placeholder="Location" style="border: none; background: none; outline:none; width: 120px; color: #FF5D00" input_html="data {:address_autocomplete_target=>"address"}" wrapper_html="data {:controller=>"address-autocomplete"}" type="text" name="address" id="address">
+
           </div>
         </div>
         <div class="nav-item nav-dates">
