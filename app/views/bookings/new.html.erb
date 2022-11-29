@@ -1,6 +1,6 @@
 <div class="container">
 <h1>Details for room tonight</h1>
-<%= simple_form_for (@booking) do |f|%>
+<%= simple_form_for [@booking] do |f|%>
 <%= f.input :arrival_date %>
 <%= f.input :departure_date %>
 <%= f.submit %>
