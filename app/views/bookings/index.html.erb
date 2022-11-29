@@ -16,5 +16,8 @@
 
   <% if current_user.role == 'host' %>
   <%= link_to "All my rooms", rooms_path %>
+  <% elsif %>
+  <% current_user.role == 'refugee' %>
+  <%= link_to "I want a room for tonight pliz", new_booking_path %>
   <% end %>
 </div>
