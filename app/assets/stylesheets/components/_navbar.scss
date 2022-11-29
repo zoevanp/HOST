@@ -1,12 +1,68 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  img {
+    vertical-align: middle;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar > .container-fluid {
+  width: 100%;
+  padding: 46px;
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+  color: #FF5D00;
+  margin-top: 0em;
+}
+
+#navbarSupportedContent {
+  border-style: solid;
+  border-color: #FF5D00;
+  border-radius: 30px;
+  background-color: white;
+  color: #FF5D00;
+  justify-content: space-evenly;
+}
+
+.navbar-location {
+  padding-left: 12px;
+}
+
+.btn-navbar {
+  width: 30px;
+  margin: 0;
+  padding-right: 35px;
+}
+
+#login-button {
+  padding: 10px;
+}
+
+.fa-magnifying-glass {
+  padding-right: 24px
+}
+
+.fa-bars {
+  padding-left: 4px;
+}
+
+.fa-user {
+  padding-right: 4px;
+}
+
+.fa-calendar {
+  margin: 0;
+}
+
+.nav-dates {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
