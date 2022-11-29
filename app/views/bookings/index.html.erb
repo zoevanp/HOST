@@ -1,7 +1,11 @@
 <div class="container">
   <h1>All my bookings:</h1>
-  <% @bookings.each do |booking| %>
+  <% @my_bookings.each do |booking| %>
+  <li><%= booking.host.first_name %></li>
+  <li><%= booking.host.last_name %></li>
+  <li><%= booking.host.id %></li>
   <li><%= booking.id %></li>
   <li><%= booking.room_id %></li>
+  <hr>
   <% end %>
 </div>
