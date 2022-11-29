@@ -35,5 +35,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:arrival_date, :departure_date, :room_id, :refugee_id)
   end
 
-
 end
