@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+
+  <% if current_user %>
+    <% if current_user.role == 'refugee' %>
+      <%= link_to "Enter Page", bookings_path %>
+    <% else %>
+    <%= link_to "Enter Page", rooms_path %>
+    <% end %>
+  <% else %>
+  <%= link_to "Log in", new_user_session_path%>
+  <% end %>
+</div>
