@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Edit room <%= @room.id %></h1>
+  <%= simple_form_for @room do |f|%>
+    <%= f.input :beds %>
+    <%= f.submit %>
+  <% end %>
+</div>

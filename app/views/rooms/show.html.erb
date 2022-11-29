@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Show Room nr: <%= @room.id %></h1>
+  <%= link_to "Edit this room", edit_room_path(@room) %>
+  <hr>
+  <%= link_to "Remove this room", room_path(@room), data: { turbo_method: :delete, turbo_confirm: "Are you sure? " }  %>
+</div>
