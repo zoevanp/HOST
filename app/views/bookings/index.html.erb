@@ -1,8 +1,5 @@
 <div class="container">
   <h1>All my bookings:</h1>
-  <hr>
-  <%= link_to "Add a booking", new_booking_path %>
-  <hr>
 
   <% @my_bookings.each do |booking| %>
   <li><%= booking.host.first_name %></li>
