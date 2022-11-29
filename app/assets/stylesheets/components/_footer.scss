@@ -1,0 +1,31 @@
+.footer {
+  background: white;
+  padding: 40px 50px;
+  color: #FF5D00;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: #FF5D00;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 0px 10px;
+  display: inline-block;
+}
+
+.footer-copyright p {
+  margin: 0px;
+}
+
+.border-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #FF5D00;
+}

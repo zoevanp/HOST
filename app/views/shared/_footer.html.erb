@@ -1,0 +1,16 @@
+<div class="footer">
+<div class="border-div">
+  <div class="footer-copyright">
+    <p>© 2022 HOST, Inc </p>
+  </div>
+  <div class="footer-links">
+    <%= link_to "Home", root_path %>
+    <%= link_to "All rooms", rooms_path %>
+    <% if current_user %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+  </div>
+</div>
+</div>

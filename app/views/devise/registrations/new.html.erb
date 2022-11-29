@@ -20,11 +20,7 @@
     <%= f.input :last_name%>
     <%= f.input :username%>
     <%= f.input :description%>
-    <% if :role == "host" %>
-      <%= f.input :host_id_number%>
-    <% elsif :role == "refugee" %>
-      <%= f.input :refugee_id_number%>
-    <% end %>
+    <%= f.input :identity_number %>
   </div>
 
   <div class="form-actions">

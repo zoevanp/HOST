@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy]
+
   def index
     @rooms = Room.where(host_id: current_user.id)
   end
@@ -33,7 +34,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find(params[:id])
     @room.destroy
     redirect_to rooms_path
   end
@@ -47,5 +47,4 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:beds)
   end
-
 end

@@ -1,0 +1,11 @@
+<div class="container">
+<h1> Profile page</h1>
+<ul>
+<li><%= @user.username %></li>
+<li><%= @user.first_name %></li>
+<li><%= @user.last_name %></li>
+<li><%= @user.role %></li>
+</ul>
+
+<%= link_to "Edit my profile", edit_user_path(@user)%>
+</div>

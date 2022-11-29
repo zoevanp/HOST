@@ -1,0 +1,11 @@
+<div class="container">
+<%= simple_form_for (@user) do |f|%>
+    <%= f.input :role, collection: User::ROLES %>
+    <%= f.input :first_name%>
+    <%= f.input :last_name%>
+    <%= f.input :username%>
+    <%= f.input :description%>
+    <%= f.input :identity_number %>
+    <%= f.button :submit, "Edit" %>
+<% end %>
+</div>

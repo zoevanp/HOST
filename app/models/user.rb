@@ -6,10 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :rooms_as_host, foreign_key: "host_id", class_name: "Room"
-  has_many :bookings_as_host, through: :rooms_as_host, source: :bookings
-  has_many :bookings_as_refugee, foreign_key: "refugee_id", class_name: "Booking"
-  has_many :rooms_as_refugee, through: :bookings_as_refugee, source: :rooms
+  has_many :rooms_as_host, foreign_key: "host_id", class_name: "Room", dependent: :destroy
+  has_many :bookings_as_host, through: :rooms_as_host, source: :bookings, dependent: :destroy
+  has_many :bookings_as_refugee, foreign_key: "refugee_id", class_name: "Booking", dependent: :destroy
+  has_many :rooms_as_refugee, through: :bookings_as_refugee, source: :rooms, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
