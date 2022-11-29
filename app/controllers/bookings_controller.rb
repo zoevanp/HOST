@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new, status: :uprocessable_entity
+      redirect_to root_path
     end
   end
 
