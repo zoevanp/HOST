@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>All my bookings:</h1>
+  <% @bookings.each do |booking| %>
+  <li><%= booking.id %></li>
+  <li><%= booking.room_id %></li>
+  <% end %>
+</div>
