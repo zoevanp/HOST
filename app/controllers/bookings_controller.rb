@@ -16,10 +16,18 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.refugee_id = current_user.id
+    @rooms = Room.all
+    @rooms.select do |room|
+      if room.bookings == []
+        @booking.room_id = room.id
+      end
+    end
+    # @booking.room_id = Booking.where(room_id: nil)
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new, status: :uprocessable_entity
+      redirect_to root_path
     end
   end
 
@@ -32,7 +40,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:arrival_date, :departure_date, :room_id, :refugee_id)
+    params.require(:booking).permit(:arrival_date, :departure_date)
   end
 
 end
