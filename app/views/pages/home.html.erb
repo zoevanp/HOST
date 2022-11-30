@@ -1,3 +1,14 @@
+<% if current_user %>
+  <% if current_user.role == "host"%>
+    <script type="text/javascript">
+    window.location.href="/rooms"  // put your correct path in a string here
+  </script>
+  <% else %>
+    <script type="text/javascript">
+    window.location.href="/bookings"  // put your correct path in a string here
+  </script>
+  <% end %>
+<% else %>
 <div class ="home-body">
 <div class="container upper_container">
   <div class="container">
@@ -23,3 +34,4 @@
   </div>
 </div>
 </div>
+<% end %>
