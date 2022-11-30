@@ -1,0 +1,18 @@
+.universal-button{
+  text-decoration: none;
+  border: 0px;
+}
+
+
+.universal-button:hover{
+
+  border-style: solid;
+  border-color: #FF5D00;
+  border-radius: 30px;
+  border-width: 1px;
+  background-color: white;
+}
+
+.specific-button{
+  text-decoration: none;
+}

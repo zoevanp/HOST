@@ -1,2 +1,35 @@
-// Specific CSS for your home-page
+.home-body {
+  background-color: #FF5D00;
+  text-decoration: none;
+}
 
+.splash_container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.splash_button {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 36px;
+  img {
+    margin-right: 14px;
+  }
+}
+
+.splash_button_link {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+  &:hover {
+    color: white;
+  }
+}
+
+.upper_container {
+  height: 100vh;
+  display: flex;
+}

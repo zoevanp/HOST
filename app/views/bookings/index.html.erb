@@ -1,15 +1,7 @@
-<div class="container">
+<div class="container" style="margin-bottom: 100px">
   <h1>All my bookings:</h1>
 
-  <% @my_bookings.each do |booking| %>
-  <li><%= booking.host.first_name %></li>
-  <li><%= booking.host.last_name %></li>
-  <li><%= booking.host.id %></li>
-  <li><%= booking.id %></li>
-  <li><%= booking.room_id %></li>
-  <%= link_to "See this booking", booking_path(booking) %>
   <hr>
-  <% end %>
 
   <% if current_user.role == 'host' %>
   <%= link_to "All my rooms", rooms_path %>
@@ -17,4 +9,18 @@
   <% current_user.role == 'refugee' %>
   <%= link_to "I want a room for tonight pliz", new_booking_path %>
   <% end %>
+
+  <hr>
+
+  <% @my_bookings.each do |booking| %>
+  <li>First name: <%= booking.host.first_name %></li>
+  <li>Last name: <%= booking.host.last_name %></li>
+  <li>Host id: <%= booking.host.id %></li>
+  <li>Booking id: <%= booking.id %></li>
+  <li>Room id: <%= booking.room_id %></li>
+  <%= link_to "See this booking", booking_path(booking) %>
+  <hr>
+  <% end %>
+
+
 </div>

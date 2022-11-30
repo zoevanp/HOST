@@ -1,14 +1,25 @@
-<div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-
-  <% if current_user %>
-    <% if current_user.role == 'refugee' %>
-      <%= link_to "Enter Page", bookings_path %>
-    <% else %>
-    <%= link_to "Enter Page", rooms_path %>
-    <% end %>
-  <% else %>
-  <%= link_to "Log in", new_user_session_path%>
-  <% end %>
+<div class ="home-body">
+<div class="container upper_container">
+  <div class="container">
+  </div>
+  <div class="splash_container">
+    <div class="splash_logo">
+      <%= image_tag "White Logo Invisible.png", width: 600 %>
+    </div>
+    <div class="splash_button nohover" type="button">
+      <%= link_to root_path do %>
+        <%= image_tag "White Symbol Invisible Right.png", width: 25 %>
+        <% if current_user %>
+          <% if current_user.role == 'refugee' %>
+            <%= link_to "Enter Here", bookings_path, class: "splash_button_link" %>
+          <% else %>
+            <%= link_to "Enter Here", rooms_path, class: "splash_button_link" %>
+          <% end %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_session_path, class: 'splash_button_link'%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>

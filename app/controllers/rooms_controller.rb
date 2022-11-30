@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      redirect_to room_path(@room)
+      redirect_to room_path(@room), notice: "Room was successfully updated"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,6 +45,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:beds)
+    params.require(:room).permit(:beds, room_pictures: [])
   end
 end

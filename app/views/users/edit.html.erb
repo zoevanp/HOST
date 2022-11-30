@@ -1,11 +1,21 @@
-<div class="container">
-<%= simple_form_for (@user) do |f|%>
-    <%= f.input :role, collection: User::ROLES %>
-    <%= f.input :first_name%>
-    <%= f.input :last_name%>
-    <%= f.input :username%>
-    <%= f.input :description%>
-    <%= f.input :identity_number %>
-    <%= f.button :submit, "Edit" %>
-<% end %>
+
+<div class="container formcontainer" style="margin-bottom: 100px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+     <div class = "form-profile">
+        <div class="container">
+        <h2>Edit your profile</h2>
+        <%= simple_form_for (@user) do |f|%>
+            <%= f.input :first_name%>
+            <%= f.input :last_name%>
+            <%= f.input :username%>
+            <%= f.input :description%>
+            <%= f.input :identity_number %>
+            <%= f.input :profile_picture, as: :file %>
+            <%= f.button :submit, "Edit", class: "universal-button" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
