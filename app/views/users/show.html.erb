@@ -1,11 +1,18 @@
 <div class="container">
 <h1> Profile page</h1>
 <ul>
+<li><%= cl_image_tag @user.profile_picture.key, height:300, width:400 %></li>
 <li><%= @user.username %></li>
 <li><%= @user.first_name %></li>
 <li><%= @user.last_name %></li>
 <li><%= @user.role %></li>
+
+<% if @user.id == current_user.id %>
+  <li><%= @user.identity_number %></li>
+<% end %>
 </ul>
 
-<%= link_to "Edit my profile", edit_user_path(@user)%>
+<% if @user.id == current_user.id %>
+  <%= link_to "Edit my profile", edit_user_path(@user)%>
+<% end %>
 </div>
