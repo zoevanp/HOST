@@ -1,0 +1,13 @@
+<div class="col-2 side-bar">
+<%# if current_user == "host" %>
+    <%= link_to "Dashboard", rooms_path, class: "ms-2" %>
+    <%= link_to "Messages / Notifications", root_path, class: "ms-2" %>
+    <%= link_to "All Rooms", rooms_path, class: "ms-2" %>
+    <%= link_to "All Bookings", bookings_path, class: "ms-2" %>
+    <%= link_to "Add a new room", new_room_path, class: "ms-2" %>
+  <%# elsif current_user == "refugee" %>
+    <%#= link_to "My Profile", users_path(current_user), class: "ms-2" %>
+    <%= link_to "Messages / Notifications", root_path, class: "ms-2" %>
+    <%= link_to "All Bookings", bookings_path, class: "ms-2" %>
+  <%# end %>
+</div>
