@@ -8,6 +8,10 @@
       <li>Host first name: <%= room.host.first_name %></li>
       <li>Host last name: <%= room.host.last_name %></li>
       <li>Amount of beds: <%= room.beds %></li>
+      <% if room.room_pictures.attached? %>
+      <%= cl_image_tag room.room_pictures[0].key %>
+      <% end %>
+
       <%= link_to "Show this room", room_path(room) %>
   <hr>
 <% end %>
