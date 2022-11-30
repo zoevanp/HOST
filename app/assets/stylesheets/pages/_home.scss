@@ -3,14 +3,6 @@
   text-decoration: none;
 }
 
-.splash_container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 .splash_button {
   display: inline-flex;
   align-items: center;
@@ -29,7 +21,65 @@
   }
 }
 
-.upper_container {
-  height: 100vh;
+.hidden_homepage_button {
+	border-radius: 30px;
+	border: 1px solid #FF5D00;;
+	background-color: white;;
+	color: #FF5D00;
+	font-size: 12px;
+	padding: 12px 45px;
+  margin: 17px;
+}
+
+.social-container {
   display: flex;
+  justify-content: center;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+
+// Miguelsss part:
+
+.white-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0%;
+  position: absolute;
+  height: 100%;
+}
+
+.enter-host-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  height: 100%;
+  background-color: #FF5D00;
+}
+
+.left-container {
+  left: 0;
+  position: absolute;
+  height: 100%;
+  transition: ease 1s;
+}
+
+.right-container {
+  left: 50%;
+  position: absolute;
+  height: 100%;
+  transition: ease 1s;
 }
