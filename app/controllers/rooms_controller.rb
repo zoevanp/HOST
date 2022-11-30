@@ -29,7 +29,6 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       redirect_to room_path(@room), notice: "Room was successfully updated"
     else
-      raise
       render :edit, status: :unprocessable_entity
     end
   end
