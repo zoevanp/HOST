@@ -13,10 +13,10 @@
   <hr>
 
   <% @my_bookings.each do |booking| %>
-  <li><%= booking.host.first_name %></li>
-  <li><%= booking.host.last_name %></li>
-  <li><%= booking.host.id %></li>
-  <li><%= booking.id %></li>
+  <li>First name: <%= booking.host.first_name %></li>
+  <li>Last name: <%= booking.host.last_name %></li>
+  <li>Host id: <%= booking.host.id %></li>
+  <li>Booking id: <%= booking.id %></li>
   <li>Room id: <%= booking.room_id %></li>
   <%= link_to "See this booking", booking_path(booking) %>
   <hr>
