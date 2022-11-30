@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :bookings_as_refugee, foreign_key: "refugee_id", class_name: "Booking", dependent: :destroy
   has_many :rooms_as_refugee, through: :bookings_as_refugee, source: :rooms, dependent: :destroy
 
+  has_one_attached :profile_picture
+
   validates :role, presence: true
 
   # validates :first_name, presence: true
