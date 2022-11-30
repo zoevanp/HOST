@@ -26,6 +26,7 @@ class RoomsController < ApplicationController
   end
 
   def update
+    raise
     if @room.update(room_params)
       redirect_to room_path(@room)
     else
@@ -45,6 +46,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:beds)
+    params.require(:room).permit(:beds, :profile_picture)
   end
 end

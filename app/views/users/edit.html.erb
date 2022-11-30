@@ -1,3 +1,4 @@
+
 <div class="container formcontainer">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
@@ -10,6 +11,7 @@
             <%= f.input :username%>
             <%= f.input :description%>
             <%= f.input :identity_number %>
+            <%= f.input :profile_picture, as: :file %>
             <%= f.button :submit, "Edit", class: "universal-button" %>
         <% end %>
         </div>
