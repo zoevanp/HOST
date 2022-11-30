@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  flex-wrap: nowrap;
+  display: flex;
+  position: relative;
+  padding-bottom: 70px !important;
   img {
     vertical-align: middle;
   }
@@ -26,9 +30,11 @@
   border-style: solid;
   border-color: #FF5D00;
   border-radius: 30px;
+  border-width: 1px;
   background-color: white;
   color: #FF5D00;
   justify-content: space-evenly;
+  padding: 3px;
 }
 
 .navbar-location {
@@ -59,10 +65,11 @@
 
 .fa-calendar {
   margin: 0;
+  padding-bottom: 7px !important;
 }
 
 .nav-dates {
   display: flex;
-  align-items: center;
+  align-items: revert;
   padding: 10px;
 }
