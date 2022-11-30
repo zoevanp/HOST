@@ -1,0 +1,27 @@
+<div class="grid-cards mt-5">
+
+  <% @rooms.each do |room| %>
+
+    <div class="card-index-room">
+
+      <div class="card-image">
+        <% if room.room_pictures.attached? %>
+          <%= cl_image_tag room.room_pictures[0].key %>
+        <% else %>
+          <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
+        <% end %>
+      </div>
+
+      <div class="card-description">
+        <li>Host first name: <%= room.host.first_name %></li>
+        <li>Host last name: <%= room.host.last_name %></li>
+        <li>Amount of beds: <%= room.beds %></li>
+      </div>
+
+      <div class="card-link">
+        <%= link_to "Show this room", room_path(room) %>
+      </div>
+
+    </div>
+     <% end %>
+</div>

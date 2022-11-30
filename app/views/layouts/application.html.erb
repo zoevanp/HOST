@@ -9,15 +9,22 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
-    <% unless controller_name == "pages" && action_name == "home" %>
+    <div class="page-container">
+      <% unless controller_name == "pages" && action_name == "home" %>
       <%= render "shared/navbar" %>
-      <%= render "shared/flashes" %>
+    <% end %>
+    <% if controller_name == "pages" && action_name == "error_page" %>
+    <main id="error_page">
+    <%= yield %>
+    </main>
+    <% else %>
+    <main id="main-content">
+      <%= yield %>
+    </main>
+    <% end %>
+    <% unless controller_name == "pages" && action_name == "home" %>
       <%= render "shared/footer" %>
     <% end %>
-    
-    <%= yield %>
-    
-  </body>
-</html>
+  </div>
+</body>

@@ -1,4 +1,11 @@
-<div class="container">
-  <h1>This is an error page !</h1>
-  <li>All rooms are full </li>
+<div class="container-error" style="margin-bottom: 100px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="errors">
+        <h1>ERROR</h1>
+        <p>We are really sorry but all our rooms are taken for tonight. HOST is doing its best to provide shelter for everyone but we depend on the number of volunteers.</p>
+        <%= link_to "Back to the dashboard", bookings_path, class:"btn universal-button" %>
+      </div>
+    </div>
+  </div>
 </div>

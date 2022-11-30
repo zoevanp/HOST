@@ -1,10 +1,9 @@
 .footer {
   background: white;
-  padding: 40px 50px;
+  padding: 0px 50px 40px 50px;
   color: #FF5D00;
   bottom: 0;
   width: 100%;
-  position: fixed;
 }
 
 .footer-links {
@@ -30,3 +29,9 @@
   justify-content: space-between;
   border-top: 1px solid #FF5D00;
 }
+
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  }

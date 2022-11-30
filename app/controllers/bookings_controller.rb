@@ -8,7 +8,11 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @booking = Booking.find(params[:id])
+    if @booking.host.id != current_user.id
+      redirect_to error_page_path
+    end
   end
 
   def new
