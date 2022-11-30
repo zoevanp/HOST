@@ -14,12 +14,17 @@
       <% unless controller_name == "pages" && action_name == "home" %>
       <%= render "shared/navbar" %>
     <% end %>
+    <% if controller_name == "pages" && action_name == "error_page" %>
+    <main id="error_page">
+    <%= yield %>
+    </main>
+    <% else %>
     <main id="main-content">
       <%= yield %>
     </main>
+    <% end %>
     <% unless controller_name == "pages" && action_name == "home" %>
       <%= render "shared/footer" %>
     <% end %>
   </div>
 </body>
-
