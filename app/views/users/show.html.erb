@@ -4,6 +4,8 @@
 
 <% if @user.profile_picture.attached? %>
 <li><%= cl_image_tag @user.profile_picture.key, height:300, width:400, crop: :fill %></li>
+<% else %>
+  <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200 %>
 <% end %>
 
 <li><%= @user.username %></li>

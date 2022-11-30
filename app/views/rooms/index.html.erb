@@ -10,6 +10,8 @@
       <li>Amount of beds: <%= room.beds %></li>
       <% if room.room_pictures.attached? %>
       <%= cl_image_tag room.room_pictures[0].key %>
+      <% else %>
+      <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
       <% end %>
 
       <%= link_to "Show this room", room_path(room) %>
