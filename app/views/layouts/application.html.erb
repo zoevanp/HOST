@@ -11,10 +11,13 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-
+    <% unless controller_name == "pages" && action_name == "home" %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <%= render "shared/footer" %>
+    <% end %>
+    
     <%= yield %>
-    <%= render "shared/footer" %>
+    
   </body>
 </html>
