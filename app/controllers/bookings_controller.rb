@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
       if room.bookings  == []
         @booking.room_id = room.id
         room.availability = false
-      elsif (room.bookings.last.departure_date - Date.today).negative?
+      elsif (room.bookings.last.departure_date - Date.today).positive?
         room.availability = false
       else
         room.availability = true
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      raise
+      redirect_to error_page_path
     end
   end
 
