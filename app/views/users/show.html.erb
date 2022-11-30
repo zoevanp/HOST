@@ -1,7 +1,9 @@
 <div class="container">
 <h1> Profile page</h1>
 <ul>
+<% if @user.profile_picture.attached? %>
 <li><%= cl_image_tag @user.profile_picture.key, height:300, width:400 %></li>
+<% end %>
 <li><%= @user.username %></li>
 <li><%= @user.first_name %></li>
 <li><%= @user.last_name %></li>
