@@ -1,17 +1,17 @@
 <div class="container">
-<h1>Show all your rooms:</h1>
-<% @rooms.each do |room| %>
-    <li>Room id: <%= room.id %></li>
-    <li>Host id: <%= room.host_id  %></li>
-    <li>Host first name: <%= room.host.first_name %></li>
-    <li>Host last name: <%= room.host.last_name %></li>
+  <h1>Your rooms:</h1>
+    <p><%= link_to "Add a new room", new_room_path %></p>
 
-    <li>Amount of beds: <%= room.beds %></li>
-  <%= link_to "Show this room", room_path(room) %>
+    <% @rooms.each do |room| %>
+      <li>Room id: <%= room.id %></li>
+      <li>Host id: <%= room.host_id  %></li>
+      <li>Host first name: <%= room.host.first_name %></li>
+      <li>Host last name: <%= room.host.last_name %></li>
+      <li>Amount of beds: <%= room.beds %></li>
+      <%= link_to "Show this room", room_path(room) %>
   <hr>
 <% end %>
 
-<p><%= link_to "Add a new room", new_room_path %></p>
 
 <p><%= link_to "Show all my bookings", bookings_path%></p>
 </div>
