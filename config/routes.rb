@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :bookings, only: %i[index show new create destroy]
+  resources :bookings, only: %i[index show new create destroy] do
+    resources :reviews, only: %i[ new create]
+  end
+
+
+
 
   get "error_page", to: "pages#error_page"
 end
