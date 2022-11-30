@@ -1,7 +1,18 @@
-<div class="container">
-  <%= simple_form_for @room do |f|%>
-  <%= f.input :beds %>
-  <%= f.input :room_pictures, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-  <% end %>
+
+<div class="container formcontainer">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-login">
+        <div class="container">
+        <h2>Add a room</h2>
+          <%= simple_form_for @room do |f|%>
+          <%= f.input :beds %>
+          <%= f.input :room_pictures, as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, "Add", class: "universal-button" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
