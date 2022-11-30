@@ -2,6 +2,7 @@
   <h1>Edit room <%= @room.id %></h1>
   <%= simple_form_for @room do |f|%>
     <%= f.input :beds %>
+    <%= f.input :room_pictures, as: :file, input_html: { multiple: true }%>
     <%= f.submit %>
   <% end %>
 </div>
