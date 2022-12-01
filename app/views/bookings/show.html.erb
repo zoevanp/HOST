@@ -1,27 +1,39 @@
-<div class="container" style="margin-bottom: 100px">
-  <h1>Booking id: <%= @booking.id %> </h1>
-  <ul>
-    <li>Arrival date: <%= @booking.arrival_date %></li>
-    <li>Departure date: <%= @booking.departure_date %></li>
-    <li>Room id: <%= @booking.room_id %></li>
-    <li>Refugee id: <%= @booking.refugee_id %></li>
-  </ul>
+<div class="row mx-2">
+  <%= render "shared/sidebar" %>
 
-  <div class="form-login">
-   <div class="col-12 col-sm-4">
-    <div class="container">
-    <% if @booking.reviews == [] %>
-      <%= simple_form_for [@booking, @review] do |f|%>
-      <%= f.input :rating %>
-      <%= f.input :description %>
-       <%= f.button :submit, "Review", class: "universal-button" %>
-      <% end %>
-    <% end %>
-  </div>
-  </div>
-  </div>
+  <div class="mybookings_container col-10" style="margin-bottom: 100px">
+    <h1><%= @booking.id %> </h1>
+    <h2>Host: <%= user.first_name %></h2>
+    <div class="bookings-images-container" >
+      <%= image_tag "apt 4.jpeg", class:"biggest-image", width: "50%" %>
+      <div class="smaller-images" >
+        <%= image_tag "apt 1.jpeg", class:"top-left-image", width: "100%" %>
+        <%= image_tag "apt 2.jpeg", class:"top-right-image", width: "100%" %>
+        <%= image_tag "apt 3.jpeg", class:"bottom-left-image", width: "100%" %>
+        <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
+      </div>
+    </div>
+    <div class="booking-info">
+      <p>Room id: <%= @booking.room_id %></p>
+      <p>Refugee id: <%= @booking.refugee_id %></p>
+      <p>
+      <p>Arrival date: <%= @booking.arrival_date %></p>
+      <p>Departure date: <%= @booking.departure_date %></p>
+    </div>
 
+    <div class="form-booking">
+      <div class="col-12 col-sm-4">
+        <div class="container">
+          <% if @booking.reviews == [] %>
+            <%= simple_form_for [@booking, @review] do |f|%>
+            <%= f.input :rating %>
+            <%= f.input :description %>
+            <%= f.button :submit, "Review", class: "universal-button" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
-
-<%= link_to "My bookings", bookings_path %>
