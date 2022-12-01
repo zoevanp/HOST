@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @rooms = Room.all
     @markers = @rooms.geocoded.map do |room|
       {
         lat: room.latitude,
