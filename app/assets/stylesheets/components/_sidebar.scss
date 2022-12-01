@@ -12,6 +12,15 @@
   margin: 20px;
   border-radius: 5px;
   padding: 12px;
+  white-space: nowrap;
+}
+
+.side-bar a:hover {
+  border-style: solid;
+  border-color: #FF5D00;
+  border-radius: 5px;
+  border-width: 1px;
+  background-color: white;
 }
 
 // Smallest device
