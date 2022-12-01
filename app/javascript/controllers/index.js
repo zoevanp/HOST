@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddressAutocompleteController from "./address_autocomplete_controller"
+application.register("address-autocomplete", AddressAutocompleteController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -12,3 +15,6 @@ application.register("map", MapController)
 
 import SplashController from "./splash_controller"
 application.register("splash", SplashController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
