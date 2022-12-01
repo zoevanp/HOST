@@ -21,3 +21,9 @@
   <%= link_to "Edit my profile", edit_user_path(@user)%>
 <% end %>
 </div>
+
+<div style="width: 50%; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
