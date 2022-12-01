@@ -1,6 +1,7 @@
 .home-body {
   background-color: #FF5D00;
   text-decoration: none;
+  width: 100%;
 }
 
 .splash_button {
@@ -21,24 +22,41 @@
   }
 }
 
+.login-form {
+  margin: 50px;
+}
+
 .hidden_homepage_button {
-	border-radius: 30px;
-	border: 1px solid #FF5D00;;
-	background-color: white;;
-	color: #FF5D00;
-	font-size: 12px;
-	padding: 12px 45px;
+	border-radius: 40px;
+  border: 1px solid #FF5D00;
+  background-color: white;
+  color: #FF5D00;
+  font-size: 12px;
+  padding: 12px 45px;
   margin: 17px;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+a.social {
+  border-radius: 40px;
+  text-decoration: none;
 }
 
 .social-container {
   display: flex;
   justify-content: center;
+  position: fixed;
+  bottom: 50px;
+  align-self: center;
 }
+
+
 
 .social-container a {
 	border: 1px solid #DDDDDD;
-	border-radius: 50%;
+	// border-radius: 50%;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -56,6 +74,16 @@
   flex-direction: column;
   justify-content: center;
   left: 0%;
+  position: absolute;
+  height: 100%;
+}
+
+.login-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
   position: absolute;
   height: 100%;
 }
@@ -82,4 +110,5 @@
   position: absolute;
   height: 100%;
   transition: ease 1s;
+  text-align: center;
 }

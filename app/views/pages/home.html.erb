@@ -1,25 +1,45 @@
-<div class="row home-body" style='height: 100vh' data-controller='splash'>
-  <div class="col-6 white-container d-none" data-splash-target="whiteContainer">
-    <h1 style="display:flex; justify-content:center; color:black">About HOST</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque tenetur ex beatae, nihil architecto distinctio illo culpa error blanditiis atque?</p>
-    <%# <div class="login-form"> %>
+<% if current_user %>
+  <% if current_user.role == "host"%>
+    <script type="text/javascript">
+    window.location.href="/rooms"  // put your correct path in a string here
+  </script>
+   <% else %>
+    <script type="text/javascript">
+    window.location.href="/bookings"  // put your correct path in a string here
+  </script>
+  <% end %>
+<% else %>
+  <div class="row home-body" style='height: 100vh' data-controller='splash'>
+    <div class="col-6 white-container d-none" data-splash-target="whiteContainer">
+      <h1 style="display:flex; justify-content:center; color:black">About HOST</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque tenetur ex beatae, nihil architecto distinctio illo culpa error blanditiis atque?</p>
+
+      <div class="login-form">
+        <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button"%>
+        <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showForm" } %>
+      </div>
+
       <div class="social-container" style="margin: 15px;">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-			  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-			  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        <%# </div> %>
-        <center> <button  class="hidden_homepage_button">Sign Up</button> </center>
-        <center> <button  class="hidden_homepage_button">Log In</button> </center>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
-  </div>
-  <div class="col-6 enter-host-container" data-splash-target="enterHostContainer">
-    <div class="splash_logo">
-      <%= image_tag "White Logo Invisible.png", width: 600 %>
     </div>
-    <div class="splash_button" type="button" id="splash-button" data-action="click->splash#slide" data-splash-target="button">
-      <%= image_tag "White Symbol Invisible Right.png", width: 25 %>
-      <p class="splash_button_link m-0">Enter Here</p>
 
+    <div class="col-6 login-container d-none" data-splash-target="loginForm">
+      <%= render "devise/sessions/login" %>
+    </div>
+
+    <div class="col-6 enter-host-container" data-splash-target="enterHostContainer">
+      <div class="splash_logo">
+        <%= image_tag "White Logo Invisible.png", width: 600 %>
+      </div>
+      <div class="splash_button" type="button" id="splash-button" data-action="click->splash#slide" data-splash-target="button">
+        <%= image_tag "White Symbol Invisible Right.png", width: 25 %>
+        <p class="splash_button_link m-0">Enter Here</p>
+      </div>
     </div>
   </div>
-</div>
+
+
+<% end %>
