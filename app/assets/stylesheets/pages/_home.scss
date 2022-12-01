@@ -1,6 +1,7 @@
 .home-body {
   background-color: #FF5D00;
   text-decoration: none;
+  width: 100%;
 }
 
 .splash_button {
@@ -73,6 +74,16 @@ a.social {
   flex-direction: column;
   justify-content: center;
   left: 0%;
+  position: absolute;
+  height: 100%;
+}
+
+.login-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
   position: absolute;
   height: 100%;
 }
