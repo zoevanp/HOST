@@ -3,6 +3,9 @@
 <%= simple_form_for [@booking] do |f|%>
 <%= f.input :arrival_date %>
 <%= f.input :departure_date %>
+<%= f.input :address,
+      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
 <%= f.submit %>
 <% end %>
 </div>
