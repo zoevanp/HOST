@@ -19,22 +19,25 @@
     <p>Departure date: <%= @booking.departure_date %></p>
   </div>
  </div>
+
+ <% if current_user.role == "host" %>
   <div class="container">
     <div class="row">
     <div class="form-login">
      <div class="col-xs-4 col-lg-4">
       <div class="container">
-      <% if @booking.reviews == [] %>
+      <%# if @booking.reviews == [] %>
         <%= simple_form_for [@booking, @review] do |f|%>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience",
              input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :description %>
          <%= f.button :submit, "Review", class: "universal-button" %>
         <% end %>
-      <% end %>
+      <%# end %>
       </div>
       </div>
      </div>
    </div>
   </div>
+  <% end %>
 </div>
