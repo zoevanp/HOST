@@ -1,0 +1,25 @@
+<div class="grid-cards mt-5">
+
+  <% @my_bookings.each do |booking| %>
+
+    <div class="card-index-room">
+
+      <div class="card-image">
+        <img src="https://www.xotels.com/wp-content/uploads/2020/03/hotel-room-type-xotels-hotel-management-company.webp" alt="room image">
+      </div>
+
+      <div class="card-description">
+        <li>First name: <%= booking.host.first_name %></li>
+        <li>Last name: <%= booking.host.last_name %></li>
+        <li>Host id: <%= booking.host.id %></li>
+        <li>Booking id: <%= booking.id %></li>
+        <li>Room id: <%= booking.room_id %></li>
+      </div>
+
+      <div class="card-link">
+        <%= link_to "See booking", booking_path(booking), class:"btn universal-button" %>
+      </div>
+
+    </div>
+     <% end %>
+</div>

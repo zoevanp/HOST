@@ -1,26 +1,9 @@
-<div class="container" style="margin-bottom: 100px">
-  <h1>All my bookings:</h1>
-
-  <hr>
-
-  <% if current_user.role == 'host' %>
-  <%= link_to "All my rooms", rooms_path %>
-  <% elsif %>
-  <% current_user.role == 'refugee' %>
-  <%= link_to "I want a room for tonight pliz", new_booking_path %>
-  <% end %>
-
-  <hr>
-
-  <% @my_bookings.each do |booking| %>
-  <li>First name: <%= booking.host.first_name %></li>
-  <li>Last name: <%= booking.host.last_name %></li>
-  <li>Host id: <%= booking.host.id %></li>
-  <li>Booking id: <%= booking.id %></li>
-  <li>Room id: <%= booking.room_id %></li>
-  <%= link_to "See this booking", booking_path(booking) %>
-  <hr>
-  <% end %>
-
-
+<div class="mx-2"  style="margin-bottom: 100px">
+  <div class="row">
+    <%= render "shared/sidebar" %>
+    <div class="col-10">
+      <h1 style="padding-left: 20px;">All my bookings</h1>
+    <%= render "shared/refugeecardgrid" %>
+    </div>
+  </div>
 </div>

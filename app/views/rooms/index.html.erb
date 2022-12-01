@@ -1,12 +1,18 @@
-
+<% if current_user %>
+  <% if current_user.role == 'host' %>
 <div class="mx-2"  style="margin-bottom: 100px">
   <div class="row">
     <%= render "shared/sidebar" %>
     <div class="col-10">
-      <h1 style="text-align: center">Your rooms</h1>
-      <%= render "shared/cardgrid" %>
+      <h1 style="padding-left: 20px;">Your rooms</h1>
+      <%= render "shared/hostcardgrid" %>
+      </div>
     </div>
 
-  </div>
+  <% else %>
+    <script type="text/javascript">
+    window.location.href="/error_page"
+    </script>
 
-</div>
+  <% end %>
+<% end %>

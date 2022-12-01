@@ -1,4 +1,4 @@
-require 'Date'
+require 'date'
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
