@@ -7,13 +7,19 @@
     <li>Refugee id: <%= @booking.refugee_id %></li>
   </ul>
 
-  <% if @booking.reviews == [] %>
-    <%= simple_form_for [@booking, @review] do |f|%>
-    <%= f.input :rating %>
-    <%= f.input :description %>
-    <%= f.submit %>
+  <div class="form-login">
+   <div class="col-12 col-sm-4">
+    <div class="container">
+    <% if @booking.reviews == [] %>
+      <%= simple_form_for [@booking, @review] do |f|%>
+      <%= f.input :rating %>
+      <%= f.input :description %>
+       <%= f.button :submit, "Review", class: "universal-button" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  </div>
+  </div>
 
 
 </div>
