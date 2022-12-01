@@ -14,9 +14,9 @@
     position: center;
     margin-bottom: 20px;
     width: 100%;
+    white-space: nowrap;
   }
 }
-
 
 .form-profile {
   background: white;
@@ -39,5 +39,13 @@
 
 .form-booking {
   background: white;
-  
+}
+
+.form-rating {
+  background: white;
+  text-align: -webkit-center;
+  align-items: center;
+  justify-content: center;
+  padding-top: 140px;
+  padding-right: 20px;
 }
