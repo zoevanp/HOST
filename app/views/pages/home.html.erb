@@ -15,8 +15,8 @@
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque tenetur ex beatae, nihil architecto distinctio illo culpa error blanditiis atque?</p>
 
       <div class="login-form">
-        <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button"%>
-        <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showForm" } %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button", data: { action: "click->splash#showSignUpForm" }%>
+        <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showLoginForm" } %>
       </div>
 
       <div class="social-container" style="margin: 15px;">
@@ -29,6 +29,11 @@
     <div class="col-6 login-container d-none" data-splash-target="loginForm">
       <%= render "devise/sessions/login" %>
     </div>
+
+    <div class="col-6 signup-container d-none" data-splash-target="registerForm">
+      <%= render "devise/registrations/register" %>
+    </div>
+
 
     <div class="col-6 enter-host-container" data-splash-target="enterHostContainer">
       <div class="splash_logo">
