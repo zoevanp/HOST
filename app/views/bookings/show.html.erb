@@ -7,7 +7,7 @@
     <li>Refugee id: <%= @booking.refugee_id %></li>
   </ul>
 
-
+<% if current_user.role == "host" %>
 <div class="container">
   <div class="row">
   <div class="form-login">
@@ -26,6 +26,7 @@
    </div>
  </div>
 </div>
+<% end %>
 
 
 </div>

@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :bookings_as_refugee, foreign_key: "refugee_id", class_name: "Booking", dependent: :destroy
   has_many :rooms_as_refugee, through: :bookings_as_refugee, source: :rooms, dependent: :destroy
   has_many :reviews
+  
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   has_one_attached :profile_picture
 
