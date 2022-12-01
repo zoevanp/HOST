@@ -88,6 +88,16 @@ a.social {
   height: 100%;
 }
 
+.signup-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  height: 100%;
+}
+
 .enter-host-container {
   display: flex;
   flex-direction: column;
