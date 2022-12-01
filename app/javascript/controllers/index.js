@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import SplashController from "./splash_controller"
 application.register("splash", SplashController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
