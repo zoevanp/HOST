@@ -13,11 +13,13 @@
         <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
       </div>
     </div>
-    
+
     <div class="booking-info">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
       <p> <%= @booking.room_id %></p>
+      <% if @booking.host.first_name && @booking.host.last_name %>
       <p><i class="fa-regular fa-user"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <% end %>
       <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
       <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
@@ -28,7 +30,7 @@
 
   <div class="form-rating col-2">
     <% if current_user.role == 'host' %>
-      <% if @booking.reviews.empty? %>
+      <% if @booking.review.nil? %>
         <%= simple_form_for [@booking, @review] do |f|%>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate Your Experience",
               input_html: {data: {controller: "star-rating"}} %>
