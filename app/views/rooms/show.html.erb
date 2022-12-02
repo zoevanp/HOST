@@ -7,7 +7,7 @@
     <div class="rooms-images-container">
       <% if @room.room_pictures.attached? %>
         <% @room.room_pictures.each do |picture| %>
-        <%= cl_image_tag picture.key, crop: :fill %>
+        <%= cl_image_tag picture.key, crop: :fill, width:200, height:200 %>
         <% end %>
       <% else %>
         <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
