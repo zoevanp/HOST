@@ -24,9 +24,6 @@
       <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
-  </div>
-
-
 
   <div class="form-rating col-2">
     <% if current_user.role == 'host' %>
@@ -38,9 +35,10 @@
           <%= f.input :description %>
           <%= f.button :submit, "Submit", class: "universal-button" %>
         <% end %>
-      <% else %>
-        <p>reviews</p>
       <% end %>
       <% end %>
   </div>
+  </div>
+
+
 </div>
