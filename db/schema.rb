@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_091147) do
     t.string "username"
     t.text "description"
     t.string "identity_number"
-    t.float "average_rating"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

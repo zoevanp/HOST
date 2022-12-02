@@ -13,9 +13,15 @@
       </div>
 
       <div class="card-description">
-        <li>Host first name: <%= room.host.first_name %></li>
-        <li>Host last name: <%= room.host.last_name %></li>
-        <i class="fa-solid fa-bed"><%= room.beds %></i>
+        <div class="icon-user">
+          <i class="fa-solid fa-user pe-2"></i><p><strong>Host:</strong> <%= room.host.first_name %>  <%= room.host.last_name %></p>
+        </div>
+        <div class="icon-location">
+          <i class="fa-solid fa-location-dot pe-2"></i><li><p><%= room.address %></li></p>
+        </div>
+        <div class="icon-bed">
+          <i class="fa-solid fa-bed pe-2"></i> <p><%= room.beds %></p>
+        </div>
       </div>
 
       <div class="card-link">

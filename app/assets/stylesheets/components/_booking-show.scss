@@ -1,7 +1,9 @@
 
 
-.mybookings_container h1 {
-
+.mybookings_container {
+  display: inline-flex;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .bookings-images-container {
@@ -11,13 +13,12 @@
   flex-direction: row;
   border-radius: 6px;
   border: 1px solid $mainorange;
-  justify-content: center;
   padding: 12px;
   max-width: 100%;
   max-height: 100%;
+  margin-right: 12px;
   img {
     height: 100%;
-
   }
 }
 
@@ -45,4 +46,23 @@
 
 .bottom-right-image {
   border-radius: 0 0 6px 0;
+}
+
+
+.gl-star-rating {
+  justify-content: center;
+}
+
+.gl-star-rating--stars {
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.booking-info {
+  display: flex;
 }

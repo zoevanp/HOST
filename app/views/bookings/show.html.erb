@@ -1,43 +1,44 @@
-<div class="row mx-2">
+<div class="mybookings_container row">
   <%= render "shared/sidebar" %>
-<div class="mybookings_container col-10" style="margin-bottom: 100px">
-  <h1><%= @booking.id %> </h1>
-  <div class="bookings-images-container" >
-    <%= image_tag "apt 4.jpeg", class:"biggest-image", width: "50%" %>
-    <div class="smaller-images" >
-      <%= image_tag "apt 1.jpeg", class:"top-left-image", width: "100%" %>
-      <%= image_tag "apt 2.jpeg", class:"top-right-image", width: "100%" %>
-      <%= image_tag "apt 3.jpeg", class:"bottom-left-image", width: "100%" %>
-      <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
+
+  <div class="col-10" style="margin-bottom: 100px">
+    <h1><%= @booking.id %> </h1>
+
+    <div class="bookings-images-container" >
+      <%= image_tag "apt 4.jpeg", class:"biggest-image", width: "50%" %>
+      <div class="smaller-images" >
+        <%= image_tag "apt 1.jpeg", class:"top-left-image", width: "100%" %>
+        <%= image_tag "apt 2.jpeg", class:"top-right-image", width: "100%" %>
+        <%= image_tag "apt 3.jpeg", class:"bottom-left-image", width: "100%" %>
+        <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
+      </div>
+    </div>
+    
+    <div class="booking-info">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
+      <p> <%= @booking.room_id %></p>
+      <p><i class="fa-regular fa-user"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
+      <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
   </div>
-  <div class="booking-info">
-    <p>Room id: <%= @booking.room_id %></p>
-    <p>Refugee id: <%= @booking.refugee_id %></p>
-    <p>
-    <p>Arrival date: <%= @booking.arrival_date %></p>
-    <p>Departure date: <%= @booking.departure_date %></p>
-  </div>
- </div>
 
- <% if current_user.role == "host" %>
-  <div class="container">
-    <div class="row">
-    <div class="form-login">
-     <div class="col-xs-4 col-lg-4">
-      <div class="container">
-      <%# if @booking.reviews == [] %>
+
+
+  <div class="form-rating col-2">
+    <% if current_user.role == 'host' %>
+      <% if @booking.reviews.empty? %>
         <%= simple_form_for [@booking, @review] do |f|%>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience",
-             input_html: {data: {controller: "star-rating"}} %>
-        <%= f.input :description %>
-         <%= f.button :submit, "Review", class: "universal-button" %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate Your Experience",
+              input_html: {data: {controller: "star-rating"}} %>
+
+          <%= f.input :description %>
+          <%= f.button :submit, "Submit", class: "universal-button" %>
         <% end %>
-      <%# end %>
-      </div>
-      </div>
-     </div>
-   </div>
+      <% else %>
+        <p>reviews</p>
+      <% end %>
+      <% end %>
   </div>
-  <% end %>
 </div>

@@ -1,28 +1,39 @@
-<div class="container" style="margin-bottom: 100px">
-  <h1 style="padding-left: 20px;">Profile page</h1>
+<% if current_user.id == @user.id %>
+  <div class="mx-2" style="margin-bottom: 100px">
+      <div class="row">
+        <%= render "shared/sidebar" %>
+      <div class="col-10">
+        <h1 style="padding-left: 20px;">Profile page</h1>
 
-  <ul>
-  <% if @user.profile_picture.attached? %>
-    <li><%= cl_image_tag @user.profile_picture.key, height:300, width:400, crop: :fill %></li>
+    <ul>
+      <% if @user.profile_picture.attached? %>
+        <li><%= cl_image_tag @user.profile_picture.key, height:300, width:400, crop: :fill %></li>
+      <% else %>
+        <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200 %>
+      <% end %>
+        <li><%= @user.username %></li>
+        <li><%= @user.first_name %></li>
+        <li><%= @user.last_name %></li>
+        <li><%= @user.role %></li>
+      <% if @user.id == current_user.id %>
+        <li><%= @user.identity_number %></li>
+      <% end %>
+    </ul>
+
+      <% if @user.id == current_user.id %>
+        <%= link_to "Edit my profile", edit_user_path(@user), class: "btn universal-button" %>
+      <% end %>
+  </div>
+
+    <div style="width: 50%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    </div>
+  </div>
   <% else %>
-    <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200 %>
-  <% end %>
-    <li><%= @user.username %></li>
-    <li><%= @user.first_name %></li>
-    <li><%= @user.last_name %></li>
-    <li><%= @user.role %></li>
-  <% if @user.id == current_user.id %>
-    <li><%= @user.identity_number %></li>
-  <% end %>
-  </ul>
-
-  <% if @user.id == current_user.id %>
-    <%= link_to "Edit my profile", edit_user_path(@user), class: "btn universal-button" %>
-  <% end %>
-</div>
-
-<div style="width: 50%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  <script type="text/javascript">
+  window.location.href="/error_page"
+  </script>
+<% end %>

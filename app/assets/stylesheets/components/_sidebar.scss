@@ -1,10 +1,8 @@
 .side-bar {
   background: $lightorange;
-
-  height: 80vh;
-
+  height: 100%;
   border-top-right-radius: 5px;
-
+  padding-right: 0 !important;
 }
 
 .side-bar a {
@@ -12,8 +10,17 @@
   background-color: $white;
   display: block;
   margin: 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: 12px;
+  white-space: nowrap;
+}
+
+.side-bar a:hover {
+  border-style: solid;
+  border-color: #FF5D00;
+  border-radius: 5px;
+  border-width: 1px;
+  background-color: white;
 }
 
 // Smallest device

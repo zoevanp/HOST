@@ -9,11 +9,12 @@
       </div>
 
       <div class="card-description">
-        <li>First name: <%= booking.host.first_name %></li>
-        <li>Last name: <%= booking.host.last_name %></li>
-        <li>Host id: <%= booking.host.id %></li>
-        <li>Booking id: <%= booking.id %></li>
-        <li>Room id: <%= booking.room_id %></li>
+        <div class="icon-user">
+          <i class="fa-solid fa-user pe-2"></i><p><strong>Host:</strong> <%= booking.host.first_name %> <%= booking.host.last_name %></li>
+        </div>
+        <div class="icon-calendar">
+          <i class="fa-solid fa-calendar pe-2"></i><p><%= booking.departure_date %></p>
+        </div>
       </div>
 
       <div class="card-link">
