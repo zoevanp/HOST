@@ -13,6 +13,7 @@
         <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
       </div>
     </div>
+    
     <div class="booking-info">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
       <p> <%= @booking.room_id %></p>
@@ -22,6 +23,8 @@
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
   </div>
+
+
 
   <div class="form-rating col-2">
     <% if current_user.role == 'host' %>
@@ -38,5 +41,4 @@
       <% end %>
       <% end %>
   </div>
-
 </div>
