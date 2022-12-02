@@ -1,0 +1,19 @@
+.rooms-images-container {
+  display: flex;
+  background: white;
+  display: inline-flex;
+  flex-direction: row;
+  border-radius: 6px;
+  border: 1px solid $mainorange;
+  padding: 12px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 12px;
+  img {
+    height: 100%;
+  }
+}
+
+.myroom_container {
+  height: 100%;
+}
