@@ -82,6 +82,28 @@
   }
 }
 
+.card-profile {
+  display: flex;
+  border-radius: 6px;
+  border: 1px solid $mainorange;
+  margin: 20px;
+  max-width: 800px;
+}
+
+.user-profile-image {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.user-edit-btn {
+  padding-left: 75px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
