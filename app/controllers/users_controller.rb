@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @rooms = Room.all
-    
+
     @markers = @rooms.geocoded.map do |room|
       {
         lat: room.latitude,
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:role, :first_name, :last_name, :username, :description, :identity_number, :profile_picture)[:average]
+    params.require(:user).permit(:role, :first_name, :last_name, :username, :description, :identity_number, :profile_picture)
   end
 end
