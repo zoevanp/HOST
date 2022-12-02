@@ -1,8 +1,7 @@
 <div class="mybookings_container row">
   <%= render "shared/sidebar" %>
 
-
-  <div class="col-8" style="margin-bottom: 100px">
+  <div class="col-10" style="margin-bottom: 100px">
     <h1><%= @booking.id %> </h1>
 
     <div class="bookings-images-container" >
@@ -16,9 +15,10 @@
     </div>
     <div class="booking-info">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
-      <p><i class="fab fa-facebook-f"></i> <%= @booking.room_id %></p>
-      <p>Host: <%= @booking.host.first_name + " " + @booking.host.last_name %></p>
-      <p>Refugee: <%= @booking.refugee_id %></p>
+      <p> <%= @booking.room_id %></p>
+      <p><i class="fa-regular fa-user"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
   </div>
