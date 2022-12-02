@@ -5,6 +5,7 @@
     <h1><%= @booking.id %> </h1>
 
     <div class="bookings-images-container" >
+
       <% if @booking.room.room_pictures%>
         <%= cl_image_tag @booking.room.room_pictures[0].key %>
         <div class="smaller-images" >
@@ -15,6 +16,7 @@
           <% end %>
         </div>
       <% end %>
+
     </div>
 
     <div class="booking-info">
