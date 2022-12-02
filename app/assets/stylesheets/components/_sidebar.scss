@@ -23,6 +23,12 @@
   background-color: white;
 }
 
+.sidebar-logosymbol {
+  max-height: 15px;
+  max-width: 15px;
+  display: inline-flex;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
