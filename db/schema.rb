@@ -91,9 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_161121) do
     t.string "username"
     t.text "description"
     t.string "identity_number"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
