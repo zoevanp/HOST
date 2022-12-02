@@ -1,3 +1,4 @@
+
 <div class="mybookings_container row">
   <%= render "shared/sidebar" %>
 
@@ -8,6 +9,7 @@
 
       <% if @booking.room.room_pictures%>
         <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200 %>
+
         <div class="smaller-images" >
           <% i = 0%>
           <% while i < @booking.room.room_pictures.length %>
