@@ -6,13 +6,17 @@
 
     <div class="bookings-images-container" >
 
-      <%= image_tag "apt 4.jpeg", class:"biggest-image", width: "50%" %>
-      <div class="smaller-images" >
-        <%= image_tag "apt 1.jpeg", class:"top-left-image", width: "100%" %>
-        <%= image_tag "apt 2.jpeg", class:"top-right-image", width: "100%" %>
-        <%= image_tag "apt 3.jpeg", class:"bottom-left-image", width: "100%" %>
-        <%= image_tag "apt 5.jpeg", class:"bottom-right-image", width: "100%" %>
-      </div>
+      <% if @booking.room.room_pictures%>
+        <%= cl_image_tag @booking.room.room_pictures[0].key %>
+        <div class="smaller-images" >
+          <% i = 0%>
+          <% while i < @booking.room.room_pictures.length %>
+            <%= cl_image_tag @booking.room.room_pictures[i].key, class:"top-left-image", width: "100%"%>
+            <% i += 1 %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
 
     <div class="booking-info">
