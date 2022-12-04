@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[ new create]
   end
 
+  patch "bookings_update", to: "bookings#update_bookings"
+
 
 
 
