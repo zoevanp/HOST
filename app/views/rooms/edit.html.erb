@@ -8,6 +8,9 @@
           <%= simple_form_for @room do |f|%>
             <%= f.input :beds %>
             <%= f.input :room_pictures, as: :file, input_html: { multiple: true }%>
+            <%= f.input :address,
+               input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+               wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
             <%= f.button :submit, "Edit", class: "universal-button" %>
           <% end %>
         </div>

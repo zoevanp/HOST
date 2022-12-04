@@ -1,4 +1,9 @@
-<div class="container" style="margin-bottom: 100px">
+
+<div class="container formcontainer" style="margin-bottom: 100px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-login">
+        <div class="container">
 <h1>Details for room tonight</h1>
 <%= simple_form_for [@booking] do |f|%>
 <%= f.input :arrival_date %>
@@ -7,6 +12,9 @@
 <%= f.input :address,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-<%= f.submit %>
+<%= f.button :submit, "Book", class: "universal-button" %>
 <% end %>
+</div>
+</div>
+</div>
 </div>
