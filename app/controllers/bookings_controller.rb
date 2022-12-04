@@ -53,8 +53,11 @@ class BookingsController < ApplicationController
     @rooms_available = Room.where(availability: true)
     @bookings_today.each do |booking|
       room_found = find_room(booking, @rooms_available, 200)
-      booking.room_id = room_found.id
-      booking.save
+      if room.availability == true
+        booking.room_id = room_found.id
+        room.availability = false
+        booking.save
+      end
     end
   end
 
