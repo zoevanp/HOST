@@ -47,14 +47,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  # every 1.day, at: '6:00 pm' do
-  #   runner update_bookings
-  # end
 
-  # every 1.minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
-  #   # the following tasks are run in parallel (not in sequence)
-  #   runner update_bookings
-  # end
 
   def update_bookings
     @bookings = Booking.all
