@@ -1,0 +1,27 @@
+.error-card {
+  background: white;
+  padding: 20px 40px;
+  border-radius: 3px;
+  height: 40vh;
+  width: 70vh;
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+      color: $mainorange;
+    }
+    p {
+      color: $mainorange;
+      align-items: center;
+    }
+    .btn {
+      position: center;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+}
+
+.container-error-edit {
+  background-color: $lightorange;
+}
