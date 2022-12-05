@@ -38,18 +38,18 @@
   </div>
 </div>
 
-    <div style="width: 50%; height: 300px;"
+<div class="card-map m-3">
+    <div style="width: 75%; height: 300px; border-radius:6px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     </div>
   </div>
-
     <% else %>
       <script type="text/javascript">
         window.location.href="/error_page"
       </script>
     <% end %>
-
+</div>
 </div>
