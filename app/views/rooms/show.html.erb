@@ -3,7 +3,7 @@
    <%= render "shared/sidebar" %>
 
   <div class="col-10" style="margin-bottom: 100px">
-    <h1>Room Number: <%= @room.id %></h1>
+    <h1>Room located in <%= @room.address %></h1>
     <p><i class="fa-solid fa-bed"></i> <%= @room.beds %></p>
     <div class="rooms-images-container">
       <% if @room.room_pictures.attached? %>
