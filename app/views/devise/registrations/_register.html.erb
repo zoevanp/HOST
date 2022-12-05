@@ -1,7 +1,7 @@
 <div class="container formcontainer" style="margin-bottom: 100px">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-      <div class="form-login">
+      <div class="register-form-login">
         <h2>Sign up</h2>
 
         <%= simple_form_for(User.new, as: :user, url: registration_path(:user), data: { turbo: :false }) do |f| %>
