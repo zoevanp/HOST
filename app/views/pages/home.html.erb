@@ -1,7 +1,7 @@
 <% if current_user %>
   <% if current_user.role == "host"%>
     <script type="text/javascript">
-    window.location.href="/rooms"  // put your correct path in a string here
+    window.location.href="/bookings"  // put your correct path in a string here
   </script>
    <% else %>
     <script type="text/javascript">
@@ -11,19 +11,19 @@
 <% else %>
   <div class="row home-body" style='height: 100vh' data-controller='splash'>
     <div class="col-6 white-container d-none" data-splash-target="whiteContainer">
-      <h1 style="display:flex; justify-content:center; color:black">About HOST</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque tenetur ex beatae, nihil architecto distinctio illo culpa error blanditiis atque?</p>
+     <div class="container info-card">
+      <h3 style="display:flex; justify-content:center">About HOST</h3>
+      <p>The main purpose of HOST is to provide shelter for the growing flow of refugees. If you feel like helping and have an extra room in your home, or even an extra home, you can upload it on our platform. Some people really need your help !  </p>
+      <p>If you just arrived in a country that is not yours and have no shelter for the night, you can also sign up, and we will do our best to find you a room that matches your needs.</p>
+      <p>You have until 6pm everyday to notify us if you need a room. Hosts will then accept or not your request, and they still have an hour to cancel if an unfortunate event comes up.</p>
+      <p>The world as we know it is changing and exceptional circumstances are creating mass migration movements. No one can predict the future, but everyone should have a roof over their heads on any occasion.</p>
+      <p>Help us provide fundamental humal rights to as many people as possible.</p>
+    </div>
 
-      <div class="social-container" style="margin: 15px;">
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-      </div>
       <div class="login-form">
         <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button", data: { action: "click->splash#showSignUpForm" }%>
         <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showLoginForm" } %>
       </div>
-
     </div>
 
 

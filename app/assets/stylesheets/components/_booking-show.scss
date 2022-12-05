@@ -18,7 +18,10 @@
   max-height: 100%;
   margin-right: 12px;
   img {
-    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    object-position: center;
   }
 }
 
@@ -65,4 +68,10 @@
 
 .booking-info {
   display: flex;
+}
+
+.bookings-images-container-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

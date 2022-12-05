@@ -4,47 +4,52 @@
       <%= render "shared/sidebar" %>
 
     <div class="col-10">
-      <h1 style="padding-left: 20px;">Your profile page</h1>
+      <h1 style="padding-left: 20px;">My profile</h1>
 
 <div class="d-flex">
-  <div class="user-profile-image m-3">
+  <div class="user-profile-image">
     <% if @user.profile_picture.attached? %>
-      <%= cl_image_tag @user.profile_picture.key, height:300, width:400, crop: :fill %>
+      <%= cl_image_tag @user.profile_picture.key, height:200, width:200, crop: :fill %>
     <% else %>
       <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200, class:"m-2" %>
     <% end %>
-  </div>
-  <div class="card-profile">
-    <div class="card-user-info m-4">
-      <p>Username: <%= @user.username %></p>
-      <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-    <% if @user.id == current_user.id %>
-      <p>ID number: <%= @user.identity_number %></p>
-    <% end %>
-      <p>About: <%= @user.description %></p>
+    <div class="user-username mt-3">
+      <div class="icon-user">
+        <i class="fa-solid fa-user pe-2"></i><p><strong>Your username:</strong> <%= @user.username %></p>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="user-edit-btn">
-    <% if @user.id == current_user.id %>
-      <%= link_to "Edit profile", edit_user_path(@user), class: "btn universal-button" %>
-    <% end %>
+<div class="card-profile">
+    <div class="card-user-info m-3">
+      <div class="card-name-id-user-info">
+        <% if @user.id == current_user.id %>
+          <p><strong>Your ID Number:</strong> <%= @user.identity_number %></p>
+        <% end %>
+          <strong><p>Your Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+      </div>
+      <p><strong>Your bio:</strong> <%= @user.description %></p>
+    <div class="edit-profile-btn">
+      <% if @user.id == current_user.id %>
+        <%= link_to "Edit profile", edit_user_path(@user), class: "btn universal-button mt-3" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-
-    <div style="width: 50%; height: 300px;"
+<div class="card-map m-3">
+    <div style="width: 75%; height: 300px; border-radius:6px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     </div>
   </div>
-
     <% else %>
       <script type="text/javascript">
         window.location.href="/error_page"
       </script>
     <% end %>
-
+</div>
 </div>

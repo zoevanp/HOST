@@ -3,25 +3,21 @@
   <%= render "shared/sidebar" %>
 
   <div class="col-10" style="margin-bottom: 100px">
-    <h1><%= @booking.id %> </h1>
+    <h1><%= @booking.id %></h1>
 
-    <div class="bookings-images-container" >
-
-      <% if @booking.room.room_pictures%>
-        <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
-
-        <div class="smaller-images" >
-          <% i = 0%>
-          <% while i < @booking.room.room_pictures.length %>
-            <%= cl_image_tag @booking.room.room_pictures[i].key, class:"top-left-image", width: "100%", width:200, height:200, crop: :fill%>
-            <% i += 1 %>
-          <% end %>
-        </div>
-      <% end %>
-
+    <div class="bookings-images-container" style= "width: 90%; height: 90%;" >
+      <button type="button" class="background-image" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 100%; border: none; padding: 0;">
+        <% if @booking.room.room_pictures%>
+          <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
+          <div class="bookings-images-container-button">
+            <i class="fa-solid fa-images"></i><%= link_to "Show all photos",  class: "btn universal-button" %>
+          </div>
+        </button>
+        <%= render "bookings/images_modal", booking: @booking  %>
+        <% end %>
     </div>
 
-    <div class="booking-info">
+    <div class="booking-info mt-3">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
       <p> <%= @booking.room_id %></p>
       <% if @booking.host.first_name && @booking.host.last_name %>
@@ -32,20 +28,27 @@
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
 
-  <div class="form-rating col-2">
+  <div>
     <% if current_user.role == 'host' %>
       <% if @booking.review.nil? %>
-        <%= simple_form_for [@booking, @review] do |f|%>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate Your Experience",
-              input_html: {data: {controller: "star-rating"}} %>
+      <div class="container">
+        <div class="row justify-content-center">
+           <div class="col-12 col-lg-5 form-rating">
+             <h5>Did you have a good time with <%= @booking.refugee.email%>?</h5>
+             <p> This rating is never going to be displayed. It is only for organization purposes. The people with the best ratings will get rooms assigned first.</p>
+             <%= simple_form_for [@booking, @review] do |f|%>
+             <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience",
+                          input_html: {data: {controller: "star-rating"}} %>
+             <%= f.input :description %>
+             <%= f.button :submit, "Submit", class: "universal-button" %>
+             <% end %>
+      <% end %>
+    <% end %>
+          </div>
+        </div>
+      </div>
 
-          <%= f.input :description %>
-          <%= f.button :submit, "Submit", class: "universal-button" %>
-        <% end %>
-      <% end %>
-      <% end %>
   </div>
   </div>
-
 
 </div>
