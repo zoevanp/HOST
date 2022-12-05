@@ -9,7 +9,7 @@
 <div class="d-flex">
   <div class="user-profile-image">
     <% if @user.profile_picture.attached? %>
-      <%= cl_image_tag @user.profile_picture.key, height:300, width:400, crop: :fill %>
+      <%= cl_image_tag @user.profile_picture.key, height:200, width:200, crop: :fill %>
     <% else %>
       <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200, class:"m-2" %>
     <% end %>
