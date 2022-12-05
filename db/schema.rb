@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_180012) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_155328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_180012) do
     t.float "longitude"
     t.string "address"
     t.integer "beds"
+    t.boolean "status"
     t.index ["refugee_id"], name: "index_bookings_on_refugee_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
   end
@@ -93,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_180012) do
     t.text "description"
     t.string "identity_number"
     t.float "average_rating"
+    t.boolean "tos_agreement"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

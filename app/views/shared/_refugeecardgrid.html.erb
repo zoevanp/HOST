@@ -19,9 +19,9 @@
 
       <div class="card-link">
         <%= link_to "See booking", booking_path(booking), class:"btn universal-button" %>
-        <%= link_to "Accept", accept_booking_path, method: :patch, style:"text-decoration:none"  %>
+        <%= link_to "Accept", bookings_path, method: :patch, style:"text-decoration:none"  %>
         |
-        <%= link_to "Decline", decline_booking_path, method: :patch, style:"text-decoration:none" %>
+        <%= link_to "Decline", bookings_path, method: :patch, style:"text-decoration:none" %>
       </div>
 
     </div>

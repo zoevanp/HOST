@@ -16,7 +16,5 @@ Rails.application.routes.draw do
   patch "decline_booking", to: "bookings#decline_booking"
 
 
-
-
   get "error_page", to: "pages#error_page"
 end

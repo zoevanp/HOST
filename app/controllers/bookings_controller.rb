@@ -96,6 +96,7 @@ class BookingsController < ApplicationController
   end
 
   def accept_booking
+    redirect_to bookings_path
   end
 
   def decline_booking
