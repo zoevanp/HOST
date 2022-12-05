@@ -32,18 +32,26 @@
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
 
-  <div class="form-rating col-2">
+  <div class="form-rating">
     <% if current_user.role == 'host' %>
       <% if @booking.review.nil? %>
-        <%= simple_form_for [@booking, @review] do |f|%>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate Your Experience",
-              input_html: {data: {controller: "star-rating"}} %>
+      <div class="container">
+        <div class="row justify-content-center">
+           <div class="col-12 col-lg-5">
+             <h5>Did you have a good time with <%= @booking.refugee.email%>?</h5>
+             <p> This rating is never going to be displayed. It is only for organization purposes. The people with the best ratings will get rooms assigned first.</p>
+             <%= simple_form_for [@booking, @review] do |f|%>
+             <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience",
+                          input_html: {data: {controller: "star-rating"}} %>
+             <%= f.input :description %>
+             <%= f.button :submit, "Submit", class: "universal-button" %>
+             <% end %>
+      <% end %>
+    <% end %>
+          </div>
+        </div>
+      </div>
 
-          <%= f.input :description %>
-          <%= f.button :submit, "Submit", class: "universal-button" %>
-        <% end %>
-      <% end %>
-      <% end %>
   </div>
   </div>
 
