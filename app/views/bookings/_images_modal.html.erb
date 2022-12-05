@@ -1,0 +1,12 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="btn-close m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body">
+          <% @booking.room.room_pictures.each do |picture| %>
+            <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
