@@ -19,16 +19,24 @@
 
       <div class="card-link">
         <%= link_to "See booking", booking_path(booking), class:"btn universal-button" %>
-        <% if current_user.role == "refugee" && booking.status_refugee.nil? %>
-          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none"  %>
-          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you want to be a bitch ?"}, style:"text-decoration:none" %>
-        <% end %>
-        <% if current_user.role == "host" && booking.status.nil? %>
-          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none"  %>
-          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you want to be a bitch ?"}, style:"text-decoration:none" %>
-        <% end %>
-
       </div>
+        <% if current_user.role == "refugee" && booking.status_refugee.nil? %>
+        <div class="container">
+          <div class="d-flex justify-content-between">
+          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you are not available ?"}, class: "btn btn-accept-decline" %>
+          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none", class: "btn btn-accept-decline"  %>
+        <% end %>
+          </div>
+        </div>
+        <div class="container">
+         <div class="d-flex justify-content-between">
+        <% if current_user.role == "host" && booking.status.nil? %>
+          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you are not available ?"}, class: "btn btn-accept-decline" %>
+          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none", class: "btn btn-accept-decline"%>
+        <% end %>
+          </div>
+        </div>
+
     </div>
      <% end %>
 </div>
