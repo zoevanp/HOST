@@ -1,17 +1,38 @@
 .universal-button{
   text-decoration: none;
-  border: 0px;
-}
-
-
-.universal-button:hover{
-  border-style: solid;
-  border-color: #FF5D00;
-  border-radius: 30px;
-  border-width: 1px;
-  background-color: white;
+  &:hover {
+    border-style: solid;
+    border-color: #FF5D00;
+    color: #FF5D00;
+    border-radius: 30px;
+    border-width: 1px;
+    background-color: white;
+  }
 }
 
 .specific-button{
   text-decoration: none;
+}
+
+.back-btn {
+  text-decoration: none;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border: 0px;
+  border-width: 1px;
+  border-color: white;
+  color: #FF5D00;
+  padding: 5px;
+  margin: 5px 0 0 5px;
+  &:hover {
+    border-style: solid;
+    border-color: #FF5D00;
+    border-radius: 30px;
+    background-color: white;
+  }
+  img {
+    width: 14px;
+    height: 14px;
+  }
 }

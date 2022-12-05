@@ -14,17 +14,18 @@
       <h1 style="display:flex; justify-content:center; color:black">About HOST</h1>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque tenetur ex beatae, nihil architecto distinctio illo culpa error blanditiis atque?</p>
 
-      <div class="login-form">
-        <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button", data: { action: "click->splash#showSignUpForm" }%>
-        <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showLoginForm" } %>
-      </div>
-
       <div class="social-container" style="margin: 15px;">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
+      <div class="login-form">
+        <%= link_to "Sign Up", new_user_registration_path, class:"hidden_homepage_button", data: { action: "click->splash#showSignUpForm" }%>
+        <%= link_to "Log In", user_session_path, class:"hidden_homepage_button", data: { action: "click->splash#showLoginForm" } %>
+      </div>
+
     </div>
+
 
     <div class="col-6 login-container d-none" data-splash-target="loginForm">
       <%= render "devise/sessions/login" %>

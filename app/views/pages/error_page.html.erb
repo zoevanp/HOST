@@ -1,11 +1,10 @@
-<div class="container-error" style="margin-bottom: 100px">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <div class="errors">
-        <h1>ERROR</h1>
-        <p>We are really sorry but all our rooms are taken for tonight. HOST is doing its best to provide shelter for everyone but we depend on the number of volunteers.</p>
-        <%= link_to "Back to the dashboard", bookings_path, class:"btn universal-button" %>
-      </div>
+<div class="container-error-edit h-100 d-flex align-items-center justify-content-center position-relative">
+  <%= render "shared/back_button" %>
+  <div class="error-card col-12 col-sm-4 text-center">
+    <div style="margin-top: 60px;">
+      <h1>ERROR</h1>
+      <p>We are really sorry but all our rooms are taken for tonight. HOST is doing its best to provide shelter for everyone but we depend on the number of volunteers.</p>
+      <%= link_to "Back to the dashboard", bookings_path, class:"universal-button px-3 py-2" %>
     </div>
   </div>
 </div>

@@ -1,20 +1,32 @@
 .fa-magnifying-glass {
-  padding-right: 24px
-}
-
-.fa-bars {
-  padding-left: 4px;
+  padding-right: 24px;
+  color: #FF5D00 !important;
+  font-size: 26px;
 }
 
 .fa-user {
   padding-right: 4px;
+  font-size: 26px;
+  color: #FF5D00;
 }
 
 .fa-calendar {
   margin: 0;
   padding-bottom: 7px !important;
+  color: #FF5D00;
+  font-size: 26px;
 }
 
 .fa-person-shelter {
   color: #FF5D00;
+  font-size: 20px;
+}
+
+
+.fa-bed {
+  color: $mainorange;
+}
+
+.fa-location-dot {
+  color: $mainorange;
 }

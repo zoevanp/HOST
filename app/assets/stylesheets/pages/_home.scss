@@ -24,6 +24,7 @@
 
 .login-form {
   margin: 50px;
+  display: inline-grid;
 }
 
 .hidden_homepage_button {
@@ -42,17 +43,15 @@
 a.social {
   border-radius: 40px;
   text-decoration: none;
+  border-color: #FF5D00;
 }
 
 .social-container {
   display: flex;
   justify-content: center;
-  position: fixed;
   bottom: 50px;
   align-self: center;
 }
-
-
 
 .social-container a {
 	border: 1px solid #DDDDDD;
@@ -63,6 +62,7 @@ a.social {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
+  border-color: #FF5D00;
 }
 
 
@@ -76,6 +76,9 @@ a.social {
   left: 0%;
   position: absolute;
   height: 100%;
+  p {
+    padding: 30px;
+  }
 }
 
 .login-container {

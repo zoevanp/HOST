@@ -1,45 +1,15 @@
-<div class="navbar navbar-expand-sm fixed-top navbar-light navbar-lewagon mb-20" style="height: 40px; background-color: #FFFFFF; padding: 46px;">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "OrangeLogoInvisible.png", width: 130 %>
-    <% end %>
+<div class="navbar navbar-expand-sm navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "OrangeLogoInvisible.png" %>
+  <% end %>
+  <% if user_signed_in? %>
+    <div>
 
-  <div class="profile">
-  <form action="/refugees" accept-charset="UTF-8" method="get">
-      <% if current_user %>
-      <%= current_user.role %>
-      <% end %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="align-items: center;">
-        <div class="navbar-location me-auto mb-2 mb-lg-0" style="display: flex; align-items: center;">
-          <div style="display: flex; align-items: center; padding: 10px;">
-          <%# form.text_field :address, placeholder="Location" style="color: #FF5D00; border: none; background: none; outline:none; width: 120px;", input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-            <input placeholder="Location" style="border: none; background: none; outline:none; width: 120px; color: #FF5D00" input_html="data {:address_autocomplete_target=>"address"}" wrapper_html="data {:controller=>"address-autocomplete"}" type="text" name="address" id="address">
-
-          </div>
-        </div>
-        <div class="nav-item nav-dates">
-          <i class="fa-regular fa-calendar" style="color: #FF5D00; font-size: 20px; padding: 5px"></i>
-          <input placeholder="Select Dates" name="dates" data-flatpickr-target="calendarInput" data-controller="flatpickr" style="color: #FF5D00; border: none; width: 120px; background: none; outline:none;" required="" type="text" class="flatpickr-input" readonly="readonly">
-          <input type="date" data-controller="flatpickr">
-          <input type="date" data-controller="flatpickr">
-        </div>
-        <div class="btn btn-navbar" style="color: #FF5D00"><i class="fa-solid fa-magnifying-glass" style="font-size: 20px;"></i></div>
-      </div>
-
-  </form>
-   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navbar-nav me-auto">
-      <button class="btn d-flex" type="submit" style="align-items:center; border: 0px">
-        <i class="fa-solid fa-bars" style="margin-right: 14px; color: var(--bs-primary); font-size: 20px;"></i>
-      </button>
-      <button id="login-button" class="btn d-flex" type="submit" role="login" style="align-items:center; border: 0px" >
-        <a class="nav-link" style="color:white; padding:0" href="/users/sign_in">
-          <i class="fa-regular fa-user" style="color: var(--bs-primary); font-size: 20px;"></i>
-        </a>
-      </button>
     </div>
-  </div>
+    <div>
+      <%= link_to user_path(current_user), class: "navbar-user-btn d-flex align-items-center" do %>
+        <i class="fa-regular fa-user p-0"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>

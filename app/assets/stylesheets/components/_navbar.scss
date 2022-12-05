@@ -4,51 +4,57 @@
   flex-wrap: nowrap;
   display: flex;
   position: relative;
-  padding-bottom: 60px !important;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 60px !important;
+  font-size: 18px;
   img {
     vertical-align: middle;
+    margin-left: 20px;
+    width: 160px;
+    height: 50px;
   }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar > .container-fluid {
-  width: 100%;
-  padding: 46px;
-  display: flex;
-  flex-wrap: inherit;
-  align-items: center;
-  border-radius: 30px;
-  background-color: white;
-  color: #FF5D00;
-  margin-top: 0em;
-}
-
-#navbarSupportedContent {
+.search-bar {
   border-style: solid;
   border-color: #FF5D00;
   border-radius: 30px;
   border-width: 1px;
   background-color: white;
-  color: #FF5D00;
   justify-content: space-evenly;
   padding: 3px;
+  flex-grow: 0;
+  align-items: center;
+  display: inline-flex;
 }
 
+
 .navbar-location {
-  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  width: 120px;
+}
+
+.navbar-user-btn {
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  padding: 18px;
+  border-radius: 7px;
+  border-style: solid;
+  border-color: #FF5D00;
+  border-width: 1px;
+  background-color: white;
+  justify-content: center;
+  margin-right: 20px;
 }
 
 .btn-navbar {
   width: 30px;
   margin: 0;
   padding-right: 35px;
-}
-
-#login-button {
-  padding: 10px;
+  color: #FF5D00;
 }
 
 .nav-dates {

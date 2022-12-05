@@ -1,33 +1,28 @@
-<div class="container formcontainer" style="margin-bottom: 100px">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
+<div class="container-error-edit d-flex justify-content-center" style="background-color: white;">
+  <div class = "error-card form-profile justify-content-center">
+    <div class="col-12 col-sm-4 text-center">
       <div class="form-login">
-        <h2>Sign up</h2>
-
-        <%= simple_form_for(User.new, as: :user, url: registration_path(:user), data: { turbo: :false }) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :role, collection: User::ROLES %>
-          </div>
-
+        <h1>Sign up</h1>
+          <%= simple_form_for(User.new, as: :user, url: registration_path(:user), data: { turbo: :false }) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" }%>
+              <%= f.input :password,
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :role, collection: User::ROLES %>
+            </div>
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "universal-button"%>
+            <%= f.button :submit, "Sign up", class: "universal-button px-3 py-2" %>
           </div>
         <% end %>
-
-
       </div>
     </div>
   </div>
