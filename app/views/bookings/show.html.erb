@@ -32,12 +32,12 @@
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
 
-  <div class="form-rating">
+  <div>
     <% if current_user.role == 'host' %>
       <% if @booking.review.nil? %>
       <div class="container">
         <div class="row justify-content-center">
-           <div class="col-12 col-lg-5">
+           <div class="col-12 col-lg-5 form-rating">
              <h5>Did you have a good time with <%= @booking.refugee.email%>?</h5>
              <p> This rating is never going to be displayed. It is only for organization purposes. The people with the best ratings will get rooms assigned first.</p>
              <%= simple_form_for [@booking, @review] do |f|%>
