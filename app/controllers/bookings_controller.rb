@@ -80,6 +80,15 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def accept_booking
+  end
+
+  def decline_booking
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
