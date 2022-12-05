@@ -5,16 +5,19 @@
   <div class="col-10" style="margin-bottom: 100px">
     <h1><%= @booking.id %></h1>
 
-    <div class="bookings-images-container" style= "width: 100%;" >
+    <div class="bookings-images-container" style= "width: 90%; height: 90%;" >
       <button type="button" class="background-image" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 100%; border: none; padding: 0;">
         <% if @booking.room.room_pictures%>
           <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
+          <div class="bookings-images-container-button">
+            <i class="fa-solid fa-images"></i><%= link_to "Show all photos",  class: "btn universal-button" %>
+          </div>
         </button>
         <%= render "bookings/images_modal", booking: @booking  %>
         <% end %>
     </div>
 
-    <div class="booking-info">
+    <div class="booking-info mt-3">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
       <p> <%= @booking.room_id %></p>
       <% if @booking.host.first_name && @booking.host.last_name %>
