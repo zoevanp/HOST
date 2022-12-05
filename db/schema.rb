@@ -43,6 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_180012) do
   end
 
   create_table "bookings", force: :cascade do |t|
+    t.date "arrival_date"
+    t.date "departure_date"
     t.bigint "room_id", null: false
     t.bigint "refugee_id", null: false
     t.datetime "created_at", null: false
@@ -50,8 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_180012) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
-    t.date "arrival_date"
-    t.date "departure_date"
     t.integer "beds"
     t.index ["refugee_id"], name: "index_bookings_on_refugee_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"

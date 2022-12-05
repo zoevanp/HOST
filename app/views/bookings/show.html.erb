@@ -3,13 +3,14 @@
   <%= render "shared/sidebar" %>
 
   <div class="col-10" style="margin-bottom: 100px">
-    <h1><%= @booking.id %> </h1>
+    <h1><%= @booking.id %></h1>
 
     <div class="bookings-images-container" >
-
-      <% if @booking.room.room_pictures%>
-        <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
-
+      <button type="button" class="background-image" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <% if @booking.room.room_pictures%>
+          <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
+        </button>
+        <%= render "bookings/images_modal", booking: @booking  %>
         <div class="smaller-images" >
           <% i = 0%>
           <% while i < @booking.room.room_pictures.length %>
@@ -17,8 +18,7 @@
             <% i += 1 %>
           <% end %>
         </div>
-      <% end %>
-
+        <% end %>
     </div>
 
     <div class="booking-info">
@@ -54,6 +54,5 @@
 
   </div>
   </div>
-
 
 </div>
