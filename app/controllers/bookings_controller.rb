@@ -49,24 +49,39 @@ class BookingsController < ApplicationController
   # end
 
   def update_bookings
+    @bookings = Booking.all
+    @my_bookings = @bookings.select do |booking|
+    booking.host.id == current_user.id || booking.refugee.id == current_user.id
+
+    Room.all.each do |room|
+      room.update(availability: true)
+    end
+
+    end
     @bookings_today = Booking.where(arrival_date: Date.today)
     @rooms_available = Room.where(availability: true)
     @bookings_today.each do |booking|
-      room_found = find_room(booking, @rooms_available, 200)
-      if room.availability == true
-        booking.room_id = room_found.id
-        room.availability = false
-        booking.save
+      room_found = find_room(booking, @rooms_available, 0.2)
+      if room_found.present? && room_found.availability == true
+        booking.update(room: room_found)
+        room_found.update(availability: false)
       end
     end
+    redirect_to bookings_path
   end
 
   def find_room(booking, rooms, distance)
-    if rooms.near(booking.address, distance).empty?
-      find_room(booking, rooms, distance + 200)
-    else
-      rooms.near(booking.address, distance).first
+    @distance = distance
+    while @distance <= 5
+      if rooms.near(booking.address, @distance).empty?
+        find_room(booking, rooms, @distance + 0.2)
+        @distance += 0.2
+      else
+        result = rooms.near(booking.address, distance).first
+        @distance = 6
+      end
     end
+    result
   end
 
   def destroy
