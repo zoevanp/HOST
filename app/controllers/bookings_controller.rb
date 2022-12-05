@@ -19,6 +19,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.arrival_date = Date.today
+    @booking.departure_date = Date.today + 1
     @booking.refugee_id = current_user.id
     if @booking.refugee.first_name.present? && @booking.refugee.last_name.present? && @booking.refugee.username.present? && @booking.refugee.description.present? && @booking.refugee.identity_number.present? && @booking.refugee.profile_picture.present?
       @rooms = Room.all
