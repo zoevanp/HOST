@@ -47,9 +47,8 @@ class BookingsController < ApplicationController
     end
   end
 
-
-
   def update_bookings
+
     @bookings = Booking.all
     @my_bookings = @bookings.select do |booking|
     booking.host.id == current_user.id || booking.refugee.id == current_user.id
@@ -60,10 +59,12 @@ class BookingsController < ApplicationController
 
     end
     @bookings_today = Booking.where(arrival_date: Date.today)
+    @bookings_today = @bookings.order(beds: :desc)
     @rooms_available = Room.where(availability: true)
     @bookings_today.each do |booking|
+
       room_found = find_room(booking, @rooms_available, 0.2)
-      if room_found.present? && room_found.availability == true
+      if room_found.present?
         booking.update(room: room_found)
         room_found.update(availability: false)
       end
@@ -78,11 +79,16 @@ class BookingsController < ApplicationController
         find_room(booking, rooms, @distance + 0.2)
         @distance += 0.2
       else
-        result = rooms.near(booking.address, distance).first
-        @distance = 6
+        rooms.near(booking.address, distance).each do |room|
+          if room.availability && (room.beds - booking.beds).positive?
+            @result = room
+            return @result
+          end
+        end
       end
+      @distance = 6
     end
-    result
+    @result
   end
 
   def destroy
