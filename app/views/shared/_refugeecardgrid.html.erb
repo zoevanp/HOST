@@ -19,10 +19,16 @@
 
       <div class="card-link">
         <%= link_to "See booking", booking_path(booking), class:"btn universal-button" %>
-        <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none"  %>
-        <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you want to be a bitch ?"}, style:"text-decoration:none" %>
-      </div>
+        <% if current_user.role == "refugee" && booking.status_refugee.nil? %>
+          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none"  %>
+          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you want to be a bitch ?"}, style:"text-decoration:none" %>
+        <% end %>
+        <% if current_user.role == "host" && booking.status.nil? %>
+          <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none"  %>
+          <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you want to be a bitch ?"}, style:"text-decoration:none" %>
+        <% end %>
 
+      </div>
     </div>
      <% end %>
 </div>
