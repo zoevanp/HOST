@@ -14,6 +14,7 @@
   <body>
     <div class="page-container">
       <% unless controller_name == "pages" && action_name == "home" %>
+        <%= render "shared/flashes" %>
         <%= render "shared/navbar" %>
       <% end %>
       <% if controller_name == "pages" && action_name == "error_page" %>
