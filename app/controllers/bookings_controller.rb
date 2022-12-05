@@ -19,23 +19,28 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.refugee_id = current_user.id
-    @rooms = Room.all
-    @rooms.each do |room|
-      if room.bookings  == []
-        @booking.room_id = room.id
-        room.availability = false
-      elsif (room.bookings.last.departure_date - Date.today).positive?
-        room.availability = false
-      else
-        room.availability = true
-        @booking.room_id = room.id
+    if @booking.refugee.first_name.present? && @booking.refugee.last_name.present? && @booking.refugee.username.present? && @booking.refugee.description.present? && @booking.refugee.identity_number.present? && @booking.refugee.profile_picture.present?
+      @rooms = Room.all
+      @rooms.each do |room|
+        if room.bookings  == []
+          @booking.room_id = room.id
+          room.availability = false
+        elsif (room.bookings.last.departure_date - Date.today).positive?
+          room.availability = false
+        else
+          room.availability = true
+          @booking.room_id = room.id
+        end
       end
-    end
-    # @booking.room_id = Booking.where(room_id: nil)
-    if @booking.save
-      redirect_to booking_path(@booking)
+      # @booking.room_id = Booking.where(room_id: nil)
+      if @booking.save
+        redirect_to booking_path(@booking)
+      else
+        redirect_to error_page_path
+      end
     else
-      redirect_to error_page_path
+      flash[:danger] = 'First, we need more information about yourself. Please fill this form.'
+      redirect_to edit_user_path(current_user)
     end
   end
 
