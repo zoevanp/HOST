@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @my_bookings = @bookings.select do |booking|
       booking.host.id == current_user.id || booking.refugee.id == current_user.id
     end
+
   end
 
   def show
@@ -96,11 +97,17 @@ class BookingsController < ApplicationController
   end
 
   def accept_booking
+    @booking = Booking.find(params[:format])
+    if current_user.role == "refugee"
+      @booking.update(status_refugee: true)
+    else
+      @booking.update(status: true)
+    end
     redirect_to bookings_path
   end
 
   def decline_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:format])
     @booking.destroy
     redirect_to bookings_path
   end

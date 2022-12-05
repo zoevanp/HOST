@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   patch "bookings_update", to: "bookings#update_bookings"
 
   patch "accept_booking", to: "bookings#accept_booking"
-  patch "decline_booking", to: "bookings#decline_booking"
+  post "decline_booking", to: "bookings#decline_booking"
 
 
   get "error_page", to: "pages#error_page"
