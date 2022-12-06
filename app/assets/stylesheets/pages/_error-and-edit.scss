@@ -12,6 +12,7 @@
     h1 {
       font-size: 44px;
       font-weight: bold;
+      margin-top: 10px;
       margin-bottom: 30px;
       text-align: center;
       color: $mainorange;
@@ -25,6 +26,10 @@
       margin-bottom: 20px;
       width: 100%;
     }
+}
+
+.errorcard-regnew {
+  height: 75vh;
 }
 
 .container-error-edit {
