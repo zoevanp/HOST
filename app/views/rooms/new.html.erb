@@ -1,21 +1,19 @@
 
-<div class="container formcontainer" style="margin-bottom: 100px">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <div class="form-login">
-        <div class="container">
-        <h2>Add a room</h2>
+<div class="container-error-edit d-flex justify-content-center col-12 col-sm-4 h-100 w-100 position-relative">
+  <%= render "shared/back_button" %>
+     <div class = "error-card justify-content-center">
+        <h1>Add a New Room</h1>
           <%= simple_form_for @room do |f|%>
           <%= f.input :beds %>
           <%= f.input :address,
               input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
               wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= f.input :room_pictures, as: :file, input_html: { multiple: true } %>
-          <%= f.button :submit, "Add", class: "universal-button" %>
+          <br>
+          <%= f.button :submit, "Add", class: "universal-button px-3 py-2" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-
 </div>

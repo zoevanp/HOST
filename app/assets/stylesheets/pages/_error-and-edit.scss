@@ -2,7 +2,6 @@
   background: white;
   padding: 20px 40px;
   border-radius: 3px;
-  height: 55vh;
   width: 70vh;
   left: 0;
   right: 0;
@@ -12,6 +11,7 @@
     h1 {
       font-size: 44px;
       font-weight: bold;
+      margin-top: 10px;
       margin-bottom: 30px;
       text-align: center;
       color: $mainorange;
@@ -25,6 +25,20 @@
       margin-bottom: 20px;
       width: 100%;
     }
+}
+
+.errorcard-regnew {
+  height: 75vh;
+}
+
+.errorcard-bookingsnew {
+  width: 80vh;
+  height: 45vh;
+}
+
+.errorcard-usersedit {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .container-error-edit {

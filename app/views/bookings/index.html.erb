@@ -1,10 +1,8 @@
-<div class="mx-2"  style="margin-bottom: 100px">
-  <div class="row">
+<div class="row rooms-index-row h-100">
     <%= render "shared/sidebar" %>
     <div class="col-10">
-      <h1 style="padding-left: 20px;">All my bookings</h1>
+      <h1 style="padding-left: 20px;">All My Bookings</h1>
     <%= render "shared/refugeecardgrid" %>
-    </div>
   </div>
 </div>
 <%= button_to "Create Bookings", bookings_update_path, method: :patch %>

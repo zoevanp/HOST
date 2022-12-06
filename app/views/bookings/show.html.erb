@@ -29,7 +29,11 @@
   </div>
 
   <div class="col-2">
-    Messages
+
+    <% if @booking.status && @booking.status_refugee && @booking.chatroom %>
+      <%= link_to "Messages", booking_chatroom_path(@booking, @booking.chatroom) %>
+    <% end %>
+
   </div>
 
   <div>

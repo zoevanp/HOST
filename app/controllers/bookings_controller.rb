@@ -5,12 +5,14 @@ class BookingsController < ApplicationController
     @my_bookings = @bookings.select do |booking|
       booking.host.id == current_user.id || booking.refugee.id == current_user.id
     end
-
   end
 
   def show
     @review = Review.new
     @booking = Booking.find(params[:id])
+    if @booking.status && @booking.status_refugee && @booking.chatroom.nil?
+      @chatroom = Chatroom.new
+    end
   end
 
   def new
@@ -99,12 +101,19 @@ class BookingsController < ApplicationController
 
   def accept_booking
     @booking = Booking.find(params[:format])
+    @chatroom = Chatroom.new
+    @chatroom.booking_id = @booking.id
+    @chatroom.name = "Chatroom"
     if current_user.role == "refugee"
       @booking.update(status_refugee: true)
     else
       @booking.update(status: true)
     end
-    redirect_to bookings_path
+    if @chatroom.save
+      redirect_to bookings_path
+    else
+      raise
+    end
   end
 
   def decline_booking
