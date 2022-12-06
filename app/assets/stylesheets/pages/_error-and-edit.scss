@@ -12,7 +12,7 @@
       color: $mainorange;
     }
     p {
-      color: $mainorange;
+      color: black;
       align-items: center;
     }
     .btn {
@@ -20,8 +20,4 @@
       margin-bottom: 20px;
       width: 100%;
     }
-}
-
-.container-error-edit {
-  background-color: $lightorange;
 }

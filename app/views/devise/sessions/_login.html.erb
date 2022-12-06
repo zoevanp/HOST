@@ -1,8 +1,8 @@
-
-<div class="container-error-edit d-flex justify-content-center">
-  <%= render "shared/back_button" %>
-  <div class = "error-card form-profile text-center h-100 col-12 col-sm-4">
-    <div class="align-items-center position-relative">
+<div class="container formcontainer" style="margin-bottom: 100px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+ <%= render "shared/back_button" %>
+     <div class = "form-login">
       <h2>Log in</h2>
         <%= simple_form_for(User.new, as: :user, url: session_path(:user), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">
@@ -20,5 +20,6 @@
         <% end %>
       <%#= render "devise/shared/links" %>
     </div>
+     </div>
   </div>
 </div>

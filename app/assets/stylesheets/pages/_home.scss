@@ -24,7 +24,7 @@
 
 .login-form {
   margin: 50px;
-  display: inline-grid;
+  // display: inline-grid;
 }
 
 .hidden_homepage_button {
@@ -43,12 +43,13 @@
 a.social {
   border-radius: 40px;
   text-decoration: none;
-  border-color: #FF5D00;
+  // border-color: #FF5D00;
 }
 
 .social-container {
   display: flex;
   justify-content: center;
+  position: fixed;
   bottom: 50px;
   align-self: center;
 }
@@ -76,9 +77,6 @@ a.social {
   left: 0%;
   position: absolute;
   height: 100%;
-  p {
-    padding: 30px;
-  }
 }
 
 .login-container {
@@ -173,6 +171,27 @@ a.social {
   background: white;
   padding: 10px 20px;
   margin-top: 165px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  width:350px;
+
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .btn {
+    position: center;
+    margin-bottom: 20px;
+    width: 100%;
+    white-space: nowrap;
+  }
+}
+
+.register-form-login-bis{
+  background: white;
+  padding: 10px 20px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   width:350px;
