@@ -17,14 +17,13 @@
     </div>
 
     <div class="booking-info mt-3">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quia incidunt a voluptatum numquam mollitia quis commodi, eius nisi porro omnis vitae nulla dicta, cupiditate iste voluptatibus veniam provident dolorum.</p>
-      <p> <%= @booking.room_id %></p>
+      <%#= @booking.room_id %>
       <% if @booking.host.first_name && @booking.host.last_name %>
-      <p><i class="fa-regular fa-user"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %></p>
+      <i class="fa-regular fa-user ps-5 pe-2"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %>
       <% end %>
       <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
-      <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
-      <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
+      <i class="fa-solid fa-person-shelter ps-5 pe-2" style="color: #FF5D00;"></i>Guest ID: <%= @booking.refugee_id %>
+      <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
   </div>
 

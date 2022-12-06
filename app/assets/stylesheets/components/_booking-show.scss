@@ -61,3 +61,26 @@
 //   flex-direction: column;
 //   align-items: flex-end;
 // }
+
+.modal-body {
+  min-width: 100vh;
+}
+
+.modal-content {
+  min-width: 100vh;
+}
+
+.modal-dialog {
+  max-width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.picture-room {
+  height: 370px;
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
