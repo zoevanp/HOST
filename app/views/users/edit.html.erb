@@ -1,17 +1,16 @@
-<div class="container-error-edit d-flex justify-content-center">
-    <div class="error-card form-profile text-center h-100 col-12 col-sm-4">
-      <%= render "shared/back_button" %>
-        <div class="align-items-center position-relative">
-          <h2>Edit your profile</h2>
-          <%= simple_form_for (@user) do |f|%>
-              <%= f.input :first_name%>
-              <%= f.input :last_name%>
-              <%= f.input :username%>
-              <%= f.input :description%>
-              <%= f.input :identity_number %>
-              <%= f.input :profile_picture, as: :file %>
-              <%= f.button :submit, "Edit", class: "universal-button px-3 py-2" %>
-          <% end %>
-        </div>
-    </div>
+<div class="container-error-edit d-flex justify-content-center col-12 col-sm-4 h-100 w-100 position-relative">
+  <%= render "shared/back_button" %>
+  <div class = "error-card errorcard-usersedit justify-content-center">
+    <h1>Edit Your Profile</h1>
+    <%= simple_form_for (@user) do |f|%>
+      <%= f.input :first_name%>
+      <%= f.input :last_name%>
+      <%= f.input :username%>
+      <%= f.input :description%>
+      <%= f.input :identity_number %>
+      <%= f.input :profile_picture, as: :file %>
+      <br>
+      <%= f.button :submit, "Edit", class: "universal-button px-3 py-2" %>
+    <% end %>
+  </div>
 </div>
