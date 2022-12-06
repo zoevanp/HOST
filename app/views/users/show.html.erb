@@ -1,11 +1,9 @@
 <% if current_user.id == @user.id %>
-  <div class="mx-2" style="margin-bottom: 100px">
-    <div class="row">
+  <div class="row rooms-index-row h-100">
       <%= render "shared/sidebar" %>
-
     <div class="col-10">
     <div class="container">
-      <h1 style="padding-left: 10px;">My profile</h1>
+      <h1 style="padding-left: 10px;">My Profile</h1>
     <div class="edit-profile-btn">
       <% if @user.id == current_user.id %>
         <%= link_to "Edit", edit_user_path(@user), class: "btn universal-button mt-3" %>
