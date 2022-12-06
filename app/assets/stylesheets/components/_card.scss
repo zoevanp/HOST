@@ -87,14 +87,20 @@
 
 .edit-profile-btn {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: left;
+
 }
 
 .card-name-id-user-info {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: left;
+  margin-bottom: 5px;
+}
+
+.card-bio-id-user-info{
+  display: flex;
+  justify-content: left;
+  text-align: justify;
 }
 
 // Smallest device
