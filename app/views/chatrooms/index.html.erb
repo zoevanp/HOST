@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Chatrooms: </h1>
+<% if @chatrooms.exist? %>
   <% @chatrooms.each do |chatroom| %>
   <ul>
   <li><%= chatroom.name %></li>
@@ -7,4 +7,5 @@
   <%= link_to "Show this chat", booking_chatroom_path(Booking.find(chatroom.booking_id), chatroom) %>
   </ul>
   <% end %>
+<% end %>
 </div>

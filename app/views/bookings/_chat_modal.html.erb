@@ -9,8 +9,22 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
+        <% if current_user.role == 'host' %>
+          <% @host_chatrooms = @booking.host.bookings_as_host.each do |booking| %>
+          <% booking.chatroom %>
+          <% end %>
+          <% @host_chatrooms.each do |chatroom| %>
+            <p><%= link_to "#{chatroom.refugee.username}", booking_chatroom_path(chatroom, chatroom.chatroom), style: "text-decoration: none; color: black;" %></p>
+          <% end %>
+        <% else %>
+           <% @refugee_chatrooms = @booking.refugee.bookings_as_refugee.each do |booking| %>
+          <% booking.chatroom %>
+          <% end %>
+          <% @refugee_chatrooms.each do |chatroom| %>
+            <p><%= link_to "#{chatroom.host.username}", booking_chatroom_path(chatroom, chatroom.chatroom), style: "text-decoration: none; color: black;"%></p>
+          <% end %>
+        <% end %>
+          </div>
         <div class="modal-footer">
           <button type="button" class="btn universal-button" data-bs-dismiss="modal">Close</button>
         </div>
