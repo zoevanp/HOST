@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :refugee, class_name: 'User'
   has_one :host, through: :room
   has_one :review
+  has_one :chatroom
 
   validates :arrival_date, presence: true
   validates :departure_date, presence: true
