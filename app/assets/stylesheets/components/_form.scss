@@ -69,6 +69,22 @@
   }
 }
 
+.was-validated .form-select:valid, .form-select.is-valid {
+  border-color: #FF5D00 !important;
+  &:focus {
+    border-color: #FFEFE8;
+    box-shadow: 0 0 0 0.25rem #FFEFE8;
+}
+}
+
+.form-select.is-valid:not {
+  background-image: none;
+}
+
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
+  background-image: none;
+}
+
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
   color: #FF5D00 !important;

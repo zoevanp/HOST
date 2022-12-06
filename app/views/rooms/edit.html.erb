@@ -1,10 +1,7 @@
-<div class="container-error-edit row justify-content-center">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <div class="form-login">
-      <%= render "shared/back_button" %>
-        <div class="container">
-          <h2>Edit your room</h2>
+<div class="container-error-edit d-flex justify-content-center col-12 col-sm-4 h-100 w-100 position-relative">
+  <%= render "shared/back_button" %>
+     <div class = "error-card justify-content-center">
+          <h1>Edit Room</h1>
           <%= simple_form_for @room do |f|%>
             <%= f.input :beds %>
             <%= f.input :room_pictures, as: :file, input_html: { multiple: true }%>
@@ -12,9 +9,8 @@
                input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
             <%= f.button :submit, "Edit", class: "universal-button" %>
+            <br>
           <% end %>
-        </div>
-      </div>
     </div>
   </div>
 
