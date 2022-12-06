@@ -2,8 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
       <div class="register-form-login">
-        <h2>Sign up</h2>
-
+        <h1>Sign Up</h1>
+        <br>
         <%= simple_form_for(User.new, as: :user, url: registration_path(:user), data: { turbo: :false }) do |f| %>
           <%= f.error_notification %>
 
@@ -22,6 +22,7 @@
             <%= f.input :role, collection: User::ROLES %>
           </div>
           <div class="form-actions">
+          <br>
             <%= f.button :submit, "Sign up", class: "universal-button px-3 py-2" %>
           </div>
         <% end %>

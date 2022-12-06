@@ -4,7 +4,13 @@
       <%= render "shared/sidebar" %>
 
     <div class="col-10">
-      <h1 style="padding-left: 20px;">My profile</h1>
+    <div class="container">
+      <h1 style="padding-left: 10px;">My profile</h1>
+    <div class="edit-profile-btn">
+      <% if @user.id == current_user.id %>
+        <%= link_to "Edit", edit_user_path(@user), class: "btn universal-button mt-3" %>
+      <% end %>
+      </div>
 
 <div class="d-flex">
   <div class="user-profile-image">
@@ -15,7 +21,7 @@
     <% end %>
     <div class="user-username mt-3">
       <div class="icon-user">
-        <i class="fa-solid fa-user pe-2"></i><p><strong>Your username:</strong> <%= @user.username %></p>
+        <i class="fa-solid fa-user pe-2"></i><p> <%= @user.username %></p>
       </div>
     </div>
   </div>
@@ -24,25 +30,22 @@
 <div class="card-profile">
     <div class="card-user-info m-3">
       <div class="card-name-id-user-info">
-        <% if @user.id == current_user.id %>
-          <p><strong>Your ID Number:</strong> <%= @user.identity_number %></p>
-        <% end %>
-          <strong><p>Your Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+          <strong><p>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
       </div>
-      <p><strong>Your bio:</strong> <%= @user.description %></p>
-    <div class="edit-profile-btn">
-      <% if @user.id == current_user.id %>
-        <%= link_to "Edit profile", edit_user_path(@user), class: "btn universal-button mt-3" %>
-      <% end %>
+      <div class="card-bio-id-user-info">
+      <p><strong>Bio:</strong> <%= @user.description %></p>
+    </div>
     </div>
   </div>
 </div>
 
-<div class="card-map m-3">
-    <div style="width: 75%; height: 300px; border-radius:6px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% if current_user.role == "host" %>
+    <div class="map-card m-3">
+    <div style="width: 70%; height: 300px; border-radius:6px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% end %>
     </div>
     </div>
   </div>
