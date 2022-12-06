@@ -1,20 +1,19 @@
-
-<div class="mybookings_container row">
+<div class="row">
   <%= render "shared/sidebar" %>
 
-  <div class="col-10" style="margin-bottom: 100px">
+  <div class="col-8">
     <h1><%= @booking.id %></h1>
 
-    <div class="bookings-images-container" style= "width: 90%; height: 90%;" >
-      <button type="button" class="background-image" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 100%; border: none; padding: 0;">
-        <% if @booking.room.room_pictures%>
-          <%= cl_image_tag @booking.room.room_pictures[0].key, width:200, height:200, crop: :fill %>
-          <div class="bookings-images-container-button">
-            <i class="fa-solid fa-images"></i><%= link_to "Show all photos",  class: "btn universal-button" %>
+    <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key, crop: :fill %>)">
+      <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <% if @booking.room.room_pictures %>
+          <div class="show-all-photos-btn position-absolute">
+            <i class="fa-solid fa-images"> </i>
+            <%= link_to "Show All Photos" %>
           </div>
-        </button>
-        <%= render "bookings/images_modal", booking: @booking  %>
         <% end %>
+      </button>
+          <%= render "bookings/images_modal", booking: @booking %>
     </div>
 
     <div class="booking-info mt-3">
@@ -27,6 +26,11 @@
       <p><i class="fa-solid fa-person-shelter" style="color: #FF5D00;" ></i> Refugee: <%= @booking.refugee_id %></p>
       <p>Arrival Date: <%= @booking.arrival_date %></p><i class="fa-solid fa-arrow-right-arrow-left"></i><p>Departure Date: <%= @booking.departure_date %></p>
     </div>
+  </div>
+
+  <div class="col-2">
+    Messages
+  </div>
 
   <div>
     <% if current_user.role == 'host' %>
@@ -47,8 +51,5 @@
           </div>
         </div>
       </div>
-
   </div>
-  </div>
-
 </div>

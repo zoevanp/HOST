@@ -2,3 +2,4 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../builds
 //= link(White Logo Invisible.png)
+//= link application.css

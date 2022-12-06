@@ -42,3 +42,24 @@
 .btn-accept-decline{
   color: $mainorange;
 }
+
+.show-all-photos-btn {
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border-style: solid;
+  border-color: #FF5D00;
+  color: #FF5D00;
+  border-radius: 30px;
+  border-width: 1px;
+  padding: 9px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.room-photo-btn {
+  background-color: transparent;
+  border: 12px solid white;
+  border-radius: 5px;
+}
