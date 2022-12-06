@@ -1,7 +1,7 @@
 <div class="container-error-edit d-flex justify-content-center col-12 col-sm-4 h-100 w-100 position-relative">
   <%= render "shared/back_button" %>
      <div class = "error-card errorcard-regnew justify-content-center">
-        <h1>Sign up</h1>
+        <h1>Sign Up</h1>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
           <%= f.error_notification %>
 

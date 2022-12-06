@@ -1,4 +1,4 @@
-<div class="col-2 side-bar h-100">
+<div class="col-2 d-flex flex-column h-100 side-bar">
   <% if current_user %>
     <% if current_user.role == 'refugee' %>
       <%= link_to bookings_path, class: "sidebar-btn mx-3" do %>
@@ -10,27 +10,21 @@
       <%= link_to root_path, class: "sidebar-btn mx-3" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
       <% end %>
-      <%= link_to user_path(current_user), class: "sidebar-btn mx-3" do %>
-        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> My profile
-      <% end %>
     <% else %>
       <%= link_to rooms_path, class: "sidebar-btn mx-3" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Dashboard
       <% end %>
-      <%= link_to new_room_path, class: "sidebar-btn mx-3" do %>
-        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Add new room
-      <% end %>
       <%= link_to rooms_path, class: "sidebar-btn mx-3" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> See all rooms
+      <% end %>
+      <%= link_to new_room_path, class: "sidebar-btn mx-3" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Add new room
       <% end %>
       <%= link_to bookings_path, class: "sidebar-btn mx-3" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Previous bookings
       <% end %>
       <%= link_to root_path, class: "sidebar-btn mx-3" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
-      <% end %>
-      <%= link_to user_path(current_user), class: "sidebar-btn mx-3" do %>
-        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> My profile
       <% end %>
     <% end %>
   <% end %>
