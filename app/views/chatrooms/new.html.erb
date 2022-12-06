@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Dummy page</h1>
+  <h3>Create new chatroom</h3>
+  <p>
+  <ul>
+
+
+  </ul>
+  </p>
+
+  <%= simple_form_for [@booking, @chatroom] do |f|%>
+  <%= f.input :name %>
+  <%= f.submit %>
+  <% end %>
+</div>
