@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :messages, only: :create
     end
   end
+  resources :chatrooms, only: [:index]
 
   patch "bookings_update", to: "bookings#update_bookings"
 

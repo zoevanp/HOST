@@ -1,17 +1,9 @@
 class ChatroomsController < ApplicationController
 
-  # def create
-  #   @chatroom = Chatroom.new
-  #   @booking = Booking.find(params[:booking_id])
-  #   @chatroom.booking_id = Booking.find(params[:booking_id]).id
-  #   @chatroom.name = "Chatroom"
-
-  #   if @chatroom.save
-  #     redirect_to booking_chatroom_path(@booking, @chatroom)
-  #   else
-  #     raise
-  #   end
-  # end
+  def index
+    # @booking
+    @chatrooms = Chatroom.all
+  end
 
   def show
     @chatroom = Chatroom.find(params[:id])
