@@ -40,7 +40,7 @@
         <% end %>
   <div>
     <% if current_user.role == 'host' %>
-      <% if @booking.review.nil? %>
+      <% if @booking.review.nil? && (@booking.departure_date - Date.today).negative? %>
       <div class="container">
         <div class="row justify-content-center">
            <div class="col-12 col-lg-5 form-rating">
