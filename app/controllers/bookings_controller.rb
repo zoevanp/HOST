@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
       end
       # @booking.room_id = Booking.where(room_id: nil)
       if @booking.save
-        redirect_to booking_path(@booking)
+        redirect_to bookings_path
       else
         redirect_to error_page_path
       end
