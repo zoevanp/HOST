@@ -28,6 +28,8 @@
           <% if current_user.role == "refugee" && booking.status_refugee.nil? %>
             <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you are not available ?"}, class: "btn btn-accept-decline" %>
             <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none", class: "btn btn-accept-decline"  %>
+          <% elsif booking.status_refugee && booking.status.nil? %>
+            <p>Pending...</p>
           <% end %>
           </div>
         </div>
@@ -36,6 +38,8 @@
           <% if current_user.role == "host" && booking.status.nil? %>
             <%= button_to "Decline", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm:"Are you sure you are not available ?"}, class: "btn btn-accept-decline" %>
             <%= button_to "Accept", accept_booking_path(booking), method: :patch, style:"text-decoration:none", class: "btn btn-accept-decline"%>
+          <% elsif booking.status && booking.status_refugee.nil? %>
+          <p>Pending...</p>
           <% end %>
           </div>
         </div>
