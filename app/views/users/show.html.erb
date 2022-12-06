@@ -38,11 +38,13 @@
   </div>
 </div>
 
-<div class="card-map m-3">
+  <% if current_user.role == "host" %>
+    <div class="card-map m-3">
     <div style="width: 75%; height: 300px; border-radius:6px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% end %>
     </div>
     </div>
   </div>

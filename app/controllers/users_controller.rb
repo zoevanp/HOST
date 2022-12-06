@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @rooms = Room.all
+    @rooms = @user.rooms_as_host
 
     @markers = @rooms.geocoded.map do |room|
       {
