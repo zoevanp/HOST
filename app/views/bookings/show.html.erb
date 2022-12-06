@@ -48,8 +48,12 @@
              <% end %>
       <% end %>
     <% end %>
+        <%= link_to "#", data: {bs_toggle: "modal", bs_target:"#chatModal"} do  %>
+            <%= image_tag "chat.png", class: "bubble-chat" %>
+        <% end %>
           </div>
         </div>
       </div>
   </div>
 </div>
+<%= render "chat_modal" %>

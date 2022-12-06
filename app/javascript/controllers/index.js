@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import AlertsController from "./alerts_controller"
 application.register("alerts", AlertsController)
 
+import ChatBubbleController from "./chat_bubble_controller"
+application.register("chat-bubble", ChatBubbleController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
