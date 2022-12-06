@@ -5,7 +5,11 @@
     <div class="card-index-room">
 
       <div class="card-image">
-        <img src="https://www.xotels.com/wp-content/uploads/2020/03/hotel-room-type-xotels-hotel-management-company.webp" alt="room image">
+         <% if booking.room.room_pictures.attached? %>
+          <%= cl_image_tag booking.room.room_pictures[0].key, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
+        <% end %>
       </div>
 
       <div class="card-description">
@@ -41,6 +45,7 @@
           <% elsif current_user.role == "host" && booking.status && booking.status_refugee.nil? %>
           <p>Pending...</p>
           <% end %>
+          </div>
           </div>
         </div>
   <% end %>
