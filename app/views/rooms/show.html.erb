@@ -2,24 +2,25 @@
 <div class="myroom_container row">
    <%= render "shared/sidebar" %>
 
-  <div class="col-10" style="margin-bottom: 100px">
+  <div class="col-8" style="margin-bottom: 100px">
     <h1>Room located in <%= @room.address %></h1>
-    <p><i class="fa-solid fa-bed"></i> <%= @room.beds %></p>
-    <div class="rooms-images-container">
+    <i class="fa-solid fa-bed mb-3"></i> <%= @room.beds %>
+    <% @room.room_pictures.each do |picture| %>
       <% if @room.room_pictures.attached? %>
-        <% @room.room_pictures.each do |picture| %>
-
-        <%= cl_image_tag picture.key, crop: :fill, width:200, height:200 %>
-
-        <% end %>
+        <div class="rooms-images-container" style="background-image: url(<%= cl_image_path picture.key %>)">
+          <div class="show-room h-100 w-100">
+        <%#= cl_image_tag picture.key, crop: :fill %>
       <% else %>
-        <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
+        <div class="rooms-images-container" style="background-image: url(https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg)">
+        <%#= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
       <% end %>
-    </div>
-    <div class="rooms-btns">
-      <%= link_to "Edit this room", edit_room_path(@room) %>
-      <%= link_to "Remove this room", room_path(@room), data: { turbo_method: :delete, turbo_confirm: "Are you sure? " }  %>
-      <%= link_to "See all my rooms", rooms_path %>
+      <% end %>
+          </div>
+        </div>
+    <div class="rooms-btns d-flex mt-2">
+      <%= link_to "Edit", edit_room_path(@room), class: "btn universal-button me-2" %>
+      <%= link_to "Remove", room_path(@room), data: { turbo_method: :delete, turbo_confirm: "Are you sure? " }, class: "btn universal-button" %>
+      <%#= link_to "See all my rooms", rooms_path, class: "btn universal-button" %>
     </div>
   </div>
 </div>

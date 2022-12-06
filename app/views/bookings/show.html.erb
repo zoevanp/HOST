@@ -4,7 +4,7 @@
   <div class="col-8">
     <h1><%= @booking.id %></h1>
 
-    <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key, crop: :fill %>)">
+    <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key %>)">
       <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <% if @booking.room.room_pictures %>
           <div class="show-all-photos-btn position-absolute">
