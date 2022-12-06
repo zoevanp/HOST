@@ -1,28 +1,11 @@
-
-
-.mybookings_container {
-  display: inline-flex;
-  justify-content: space-around;
-  height: 100%;
-}
-
 .bookings-images-container {
   display: flex;
-  background: white;
-  display: inline-flex;
-  flex-direction: row;
   border-radius: 6px;
   border: 1px solid $mainorange;
-  padding: 12px;
-  max-width: 100%;
-  max-height: 100%;
-  margin-right: 12px;
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    object-position: center;
-  }
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .smaller-images {
@@ -70,8 +53,8 @@
   display: flex;
 }
 
-.bookings-images-container-button {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+// .bookings-images-container-button {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-end;
+// }
