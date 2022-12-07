@@ -1,8 +1,7 @@
 <div class="grid-cards mt-2">
 
-  <% @my_current_bookings.each do |booking| %>
+  <% @my_past_bookings.each do |booking| %>
     <div class="card-index-room">
-
       <div class="card-image">
          <% if booking.room.room_pictures.attached? %>
           <%= cl_image_tag booking.room.room_pictures[0].key, crop: :fill %>
