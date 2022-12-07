@@ -21,7 +21,7 @@
             <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, host_chatrooms[0]), style: "text-decoration: none; color: black;" %></p>
           <%# Else loop over array and display all chatrooms %>
           <% else %>
-            <% host_chatrooms.each do |chatroom| %>
+            <% host_chatrooms.compact!.each do |chatroom| %>
               <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
             <% end %>
           <% end %>
@@ -37,7 +37,7 @@
               <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, refugee_chatrooms[0]), style: "text-decoration: none; color: black;"%></p>
           <%# Else loop over array and display all chatrooms %>
             <% else %>
-              <% refugee_chatrooms.each do |chatroom| %>
+              <% refugee_chatrooms.compact!.each do |chatroom| %>
                 <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
               <% end %>
             <% end %>
