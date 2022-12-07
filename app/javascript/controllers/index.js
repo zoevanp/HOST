@@ -22,6 +22,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import RatingController from "./rating_controller"
+application.register("rating", RatingController)
+
 import SplashController from "./splash_controller"
 application.register("splash", SplashController)
 

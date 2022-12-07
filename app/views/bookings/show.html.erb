@@ -39,25 +39,16 @@
         <%= link_to "#", data: {bs_toggle: "modal", bs_target:"#chatModal"} do  %>
             <span class="dot"><p id="chat">CHAT</p></span>
         <% end %>
-  <div>
+
+  <button type="button" id="buttonRating" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#ratingModal"></button>
     <% if current_user.role == 'host' %>
-      <% if @booking.review.nil? && (@booking.departure_date - Date.today).negative? %>
-      <div class="container">
-        <div class="row justify-content-center">
-           <div class="col-12 col-lg-5 form-rating">
-             <h5>Did you have a good time with <%= @booking.refugee.email%>?</h5>
-             <p> This rating is never going to be displayed. It is only for organization purposes. The people with the best ratings will get rooms assigned first.</p>
-             <%= simple_form_for [@booking, @review] do |f|%>
-             <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience",
-                          input_html: {data: {controller: "star-rating"}} %>
-             <%= f.input :description %>
-             <%= f.button :submit, "Submit", class: "universal-button" %>
-             <% end %>
-      <% end %>
+    <% if @booking.review.nil? && (@booking.departure_date - Date.today).negative? %>
+      <%= render "rating_modal" %>
     <% end %>
-          </div>
-        </div>
-      </div>
-  </div>
+    <% end %>
+
+
+
 </div>
+
 <%= render "chat_modal" %>
