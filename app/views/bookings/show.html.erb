@@ -1,10 +1,19 @@
-<div class="row">
-  <%= render "shared/sidebar" %>
+<div class="rooms-index-row h-100 d-flex">
+  <%= render "shared/interactive_sidebar" %>
 
-  <div class="col-8">
-    <h1><%= @booking.id %></h1>
+  <div class ="container">
+  <% if current_user.role == "host" %>
+  <h1 class = "booking-show-title"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %></h1>
+  <% else %>
+  <h1 class = "booking-show-title"><%= @booking.host.first_name%> <%= @booking.host.last_name %></h1>
+  <% end %>
 
-    <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key %>)">
+  <div class="row">
+
+
+
+<div class="col-8">
+  <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key %>)">
       <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <% if @booking.room.room_pictures %>
           <div class="show-all-photos-btn position-absolute">
@@ -16,8 +25,7 @@
           <%= render "bookings/images_modal", booking: @booking %>
       </div>
     </div>
-
-    <div class="booking-info mt-3">
+        <div class="booking-info mt-3">
       <%#= @booking.room_id %>
       <% if @booking.host.first_name && @booking.host.last_name %>
       <i class="fa-regular fa-user ps-5 pe-2"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %>
@@ -26,9 +34,8 @@
       <i class="fa-solid fa-person-shelter ps-5 pe-2" style="color: #FF5D00;"></i>Guest ID: <%= @booking.refugee_id %>
       <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
-  </div>
-
-  <div class="col-2">
+    </div>
+    <div class="col-2">
 
     <% if @booking.status && @booking.status_refugee && @booking.chatroom %>
       <%= link_to "Messages", booking_chatroom_path(@booking, @booking.chatroom) %>
@@ -45,9 +52,11 @@
     <% if @booking.review.nil? && (@booking.departure_date - Date.today).negative? %>
       <%= render "rating_modal" %>
     <% end %>
+          </div>
+          </div>
+
+
     <% end %>
-
-
 
 </div>
 
