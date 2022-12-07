@@ -5,22 +5,23 @@
   <div class="col-8" style="margin-bottom: 100px">
     <h1>Room located in <%= @room.address %></h1>
     <i class="fa-solid fa-bed mb-3"></i> <%= @room.beds %>
-    <% @room.room_pictures.each do |picture| %>
-      <% if @room.room_pictures.attached? %>
-        <div class="rooms-images-container" style="background-image: url(<%= cl_image_path picture.key %>)">
-          <div class="show-room h-100 w-100">
-        <%#= cl_image_tag picture.key, crop: :fill %>
-      <% else %>
-        <div class="rooms-images-container" style="background-image: url(https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg)">
-        <%#= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200   %>
-      <% end %>
-      <% end %>
+    <% if @room.room_pictures.attached? %>
+        <div class="rooms-images-container position-relative" style="background-image: url(<%= cl_image_path @room.room_pictures.first.key %>)">
+          <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="show-all-photos-btn position-absolute">
+              <i class="fa-solid fa-images"> </i> Show All Photos
+            </div>
+          </button>
+          <div>
+            <%= render "room_modal", room: @room %>
           </div>
         </div>
+    <% else %>
+      <div class="rooms-images-container" style="background-image: url(https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg)">
+    <% end %>
     <div class="rooms-btns d-flex mt-2">
       <%= link_to "Edit", edit_room_path(@room), class: "btn universal-button me-2" %>
       <%= link_to "Remove", room_path(@room), data: { turbo_method: :delete, turbo_confirm: "Are you sure? " }, class: "btn universal-button" %>
-      <%#= link_to "See all my rooms", rooms_path, class: "btn universal-button" %>
     </div>
   </div>
 </div>

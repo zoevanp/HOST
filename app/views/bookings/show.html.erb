@@ -8,12 +8,13 @@
       <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <% if @booking.room.room_pictures %>
           <div class="show-all-photos-btn position-absolute">
-            <i class="fa-solid fa-images"> </i>
-            <%= link_to "Show All Photos" %>
+            <i class="fa-solid fa-images"> </i> Show All Photos
           </div>
         <% end %>
       </button>
+      <div>
           <%= render "bookings/images_modal", booking: @booking %>
+      </div>
     </div>
 
     <div class="booking-info mt-3">
