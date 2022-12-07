@@ -56,7 +56,7 @@
 .edit-profile-btn {
   display: flex;
   align-items: left;
-
+  justify-content: center;
 }
 
 .card-name-id-user-info {
@@ -69,6 +69,12 @@
   display: flex;
   justify-content: left;
   text-align: justify;
+}
+
+.rooms-index-row {
+  h1 {
+    color: #FF5D00;
+  }
 }
 
 // Smallest device
