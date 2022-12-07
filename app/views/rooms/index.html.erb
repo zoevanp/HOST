@@ -1,10 +1,9 @@
-
-<div class="row rooms-index-row h-100">
+<div class="rooms-index-row h-100 d-flex">
+      <%= render "shared/interactive_sidebar" %>
+      <div>
   <% if current_user %>
     <% if current_user.role == 'host' %>
-      <%= render "shared/sidebar" %>
-      <div class="col-10">
-        <h1 style="padding-left: 20px;">Your Rooms</h1>
+        <h1 style="padding-left: 10px;">Your Rooms</h1>
           <%= render "shared/hostcardgrid" %>
     <% else %>
       <script type="text/javascript">
@@ -12,5 +11,5 @@
       </script>
     <% end %>
   <% end %>
-  </div>
+</div>
 </div>
