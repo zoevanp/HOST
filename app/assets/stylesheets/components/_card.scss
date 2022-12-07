@@ -5,8 +5,9 @@
   border-radius: 6px;
   border: 1px solid $mainorange;
   margin-top: 15px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: none;
+  grid-gap: 5px;
 
 }
 
@@ -29,9 +30,9 @@
 
 .grid-cards {
   display: grid;
-  padding-left: 25px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
+  padding-left: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }
 
 .card-profile {
