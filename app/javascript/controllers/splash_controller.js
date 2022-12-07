@@ -4,13 +4,13 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  static targets = ["enterHostContainer", "whiteContainer", "button", "loginForm", "registerForm"]
+  static targets = ["enterHostContainer", "whiteContainer", "button", "loginForm", "registerForm", "back"]
 
   slide() {
     this.enterHostContainerTarget.classList.add("left-container")
     this.whiteContainerTarget.classList.add("right-container")
     this.whiteContainerTarget.classList.remove("d-none")
-    this.buttonTarget.classList.add("color: orange")
+    //this.buttonTarget.classList.add("color: orange")
   }
 
   showLoginForm(event) {
@@ -24,5 +24,15 @@ export default class extends Controller {
     this.whiteContainerTarget.classList.add("d-none")
     this.registerFormTarget.classList.remove("d-none")
 
+  }
+
+  backToSlideLogin() {
+    this.whiteContainerTarget.classList.remove("d-none")
+    this.loginFormTarget.classList.add("d-none")
+  }
+
+  backToSlideRegistration() {
+    this.whiteContainerTarget.classList.remove("d-none")
+    this.registerFormTarget.classList.add("d-none")
   }
 }
