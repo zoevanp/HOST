@@ -3,7 +3,7 @@
       <div>
   <% if current_user %>
     <% if current_user.role == 'host' %>
-        <h1 style="padding-left: 10px;">Your Rooms</h1>
+        <h1 style="padding-left: 40px;">Your Rooms</h1>
           <%= render "shared/hostcardgrid" %>
     <% else %>
       <script type="text/javascript">
