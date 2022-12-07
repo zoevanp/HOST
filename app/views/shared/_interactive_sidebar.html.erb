@@ -1,0 +1,50 @@
+<% if current_user %>
+  <div class="area"></div>
+    <nav class="main-menu">
+      <% if current_user.role == 'refugee' %>
+
+        <li class = "iconess"><i class="fa fa-list fa-2x"></i></li>
+
+      <ul>
+        <li>
+        <%= link_to bookings_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == bookings_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Dashboard
+        <% end %>
+        </li>
+        <li>
+        <%= link_to new_booking_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_booking_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Ask for a room
+        <% end %>
+        </li>
+        <li>
+        <%= link_to root_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
+        <% end %>
+        </li>
+      </ul>
+      <% else %>
+      <ul>
+        <li>
+        <%= link_to rooms_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == rooms_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Dashboard
+        <% end %>
+        </li>
+        <li>
+        <%= link_to new_room_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_room_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Add a new room
+        <% end %>
+        </li>
+        <li>
+        <%= link_to bookings_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == bookings_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> All my accomodations
+        <% end %>
+        </li>
+        <li>
+        <%= link_to root_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
+        <% end %>
+        </li>
+      </ul>
+      <% end %>
+    </nav>
+<% end %>
