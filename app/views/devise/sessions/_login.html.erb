@@ -1,26 +1,27 @@
-<div class="container formcontainer" style="margin-bottom: 100px">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-     <div class = "form-login">
-      <h1>Log In</h1>
-      <br>
-        <%= simple_form_for(User.new, as: :user, url: session_path(:user), data: { turbo: :false }) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" } %>
-            <%= f.input :password,
-              required: false,
-              input_html: { autocomplete: "current-password" } %>
-          </div>
-          <div class="form-actions">
+<div class="container formcontainer" style="margin-bottom: 100px;">
+  <button id="back-about"class="back-btn position-absolute d-flex justify-content-center align-items-center" data-action="click->splash#backToSlideLogin">
+  <%= image_tag "Orange Symbol Invisible left.png" %>&emsp; Go Back</button>
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-4">
+        <div class = "form-login">
+          <h1>Log In</h1>
           <br>
-            <%= f.button :submit, "Log in", class: "universal-button px-3 py-2"%>
-          </div>
-        <% end %>
-      <%#= render "devise/shared/links" %>
+            <%= simple_form_for(User.new, as: :user, url: session_path(:user), data: { turbo: :false }) do |f| %>
+              <div class="form-inputs">
+                <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+                <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" } %>
+              </div>
+              <div class="form-actions">
+              <br>
+                <%= f.button :submit, "Log in", class: "universal-button px-3 py-2"%>
+              </div>
+            <% end %>
+        </div>
+      </div>
     </div>
-     </div>
-  </div>
 </div>
