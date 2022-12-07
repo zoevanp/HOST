@@ -9,21 +9,40 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
+          <%# Current user is a host %>
         <% if current_user.role == 'host' %>
-          <% @host_chatrooms = @booking.host.bookings_as_host.each do |booking| %>
+          <% host_chatrooms = @booking.host.bookings_as_host.map do |booking| %>
           <% booking.chatroom %>
           <% end %>
-          <% @host_chatrooms.each do |chatroom| %>
-            <p><%= link_to "#{chatroom.refugee.username}", booking_chatroom_path(chatroom, chatroom.chatroom), style: "text-decoration: none; color: black;" %></p>
+
+          <%# Check if second argument chatrooms array is a nil value %>
+          <% if host_chatrooms[1].nil?  %>
+            <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, host_chatrooms[0]), style: "text-decoration: none; color: black;" %></p>
+          <%# Else loop over array and display all chatrooms %>
+          <% else %>
+            <% host_chatrooms.each do |chatroom| %>
+              <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
+            <% end %>
           <% end %>
-        <% else %>
-           <% @refugee_chatrooms = @booking.refugee.bookings_as_refugee.each do |booking| %>
-          <% booking.chatroom %>
+
+          <%# Current user is a refugee %>
+          <% else %>
+            <% refugee_chatrooms = @booking.refugee.bookings_as_refugee.map do |booking| %>
+              <% booking.chatroom %>
+            <% end %>
+
+          <%# Check if second argument chatrooms array is a nil value %>
+            <% if refugee_chatrooms[1].nil? %>
+              <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, refugee_chatrooms[0]), style: "text-decoration: none; color: black;"%></p>
+          <%# Else loop over array and display all chatrooms %>
+            <% else %>
+              <% refugee_chatrooms.each do |chatroom| %>
+                <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
+              <% end %>
+            <% end %>
+
           <% end %>
-          <% @refugee_chatrooms.each do |chatroom| %>
-            <p><%= link_to "#{chatroom.host.username}", booking_chatroom_path(chatroom, chatroom.chatroom), style: "text-decoration: none; color: black;"%></p>
-          <% end %>
-        <% end %>
           </div>
         <div class="modal-footer">
           <button type="button" class="btn universal-button" data-bs-dismiss="modal">Close</button>
