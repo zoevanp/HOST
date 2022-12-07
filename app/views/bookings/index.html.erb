@@ -1,8 +1,10 @@
-<div class="row rooms-index-row h-100">
-<%= button_to "Create Bookings", bookings_update_path, method: :patch %>
-    <%= render "shared/sidebar" %>
-    <div class="col-10">
-      <h1 style="padding-left: 20px;">All My Bookings</h1>
+<div class="rooms-index-row h-100 d-flex">
+  <%= render "shared/interactive_sidebar" %>
+  <div>
+  <% if current_user.email == "admin@gmail.com" %>
+    <%= button_to "Create Bookings", bookings_update_path, method: :patch %>
+  <% end %>
+    <h1 style="padding-left: 20px;">All My Bookings</h1>
     <%= render "shared/refugeecardgrid" %>
   </div>
 </div>

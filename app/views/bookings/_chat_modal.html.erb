@@ -16,15 +16,10 @@
           <% booking.chatroom %>
           <% end %>
 
-          <%# Check if second argument chatrooms array is a nil value %>
-          <% if host_chatrooms[1].nil?  %>
-            <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, host_chatrooms[0]), style: "text-decoration: none; color: black;" %></p>
-          <%# Else loop over array and display all chatrooms %>
-          <% else %>
-            <% host_chatrooms.compact.each do |chatroom| %>
-              <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
-            <% end %>
+          <% host_chatrooms.compact.each do |chatroom| %>
+            <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
           <% end %>
+
 
           <%# Current user is a refugee %>
           <% else %>
@@ -32,15 +27,10 @@
               <% booking.chatroom %>
             <% end %>
 
-          <%# Check if second argument chatrooms array is a nil value %>
-            <% if refugee_chatrooms[1].nil? %>
-              <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, refugee_chatrooms[0]), style: "text-decoration: none; color: black;"%></p>
-          <%# Else loop over array and display all chatrooms %>
-            <% else %>
               <% refugee_chatrooms.compact.each do |chatroom| %>
                 <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
               <% end %>
-            <% end %>
+
 
           <% end %>
           </div>

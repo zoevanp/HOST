@@ -3,23 +3,21 @@
       <%= render "shared/sidebar" %>
     <div class="col-10">
     <div class="container">
-      <h1 style="padding-left: 10px;">My Profile</h1>
-    <div class="edit-profile-btn">
-      <% if @user.id == current_user.id %>
-        <%= link_to "Edit", edit_user_path(@user), class: "btn universal-button mt-3" %>
-      <% end %>
-      </div>
+      <h1>My Profile</h1>
 
 <div class="d-flex">
-  <div class="user-profile-image">
+  <div class="user-profile-image m-2">
     <% if @user.profile_picture.attached? %>
-      <%= cl_image_tag @user.profile_picture.key, height:200, width:200, crop: :fill %>
+      <%= cl_image_tag @user.profile_picture.key, width: 200, height: 200, crop: :fill %>
     <% else %>
-      <%= image_tag "https://cdn.britannica.com/22/125622-050-E4DA94ED/Albino-axolotl.jpg", width:200, height:200, class:"m-2" %>
+      <%= image_tag "https://unsplash.com/photos/Cecb0_8Hx-o", width: 200, height: 200, class:"m-2" %>
     <% end %>
-    <div class="user-username mt-3">
-      <div class="icon-user">
-        <i class="fa-solid fa-user pe-2"></i><p> <%= @user.username %></p>
+    <div class="user-username">
+        <i class="fa-solid fa-user icon-user"> </i><p> <%= @user.username %></p>
+    <div class="edit-profile-btn justify-center">
+      <% if @user.id == current_user.id %>
+        <%= link_to "Edit", edit_user_path(@user), class: "universal-button mt-3" %>
+      <% end %>
       </div>
     </div>
   </div>
