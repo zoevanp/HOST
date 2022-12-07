@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:role])
   end
 
+  def after_sign_in_path_for(_resource_or_scope)
+    current_user.role == "refugee" ? bookings_path : rooms_path
+  end 
+
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end

@@ -1,29 +1,26 @@
 <div class="col-2 d-flex flex-column h-100 side-bar">
   <% if current_user %>
     <% if current_user.role == 'refugee' %>
-      <%= link_to bookings_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to bookings_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == bookings_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Dashboard
       <% end %>
-      <%= link_to new_booking_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to new_booking_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_booking_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Book Room tonight
       <% end %>
-      <%= link_to root_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to root_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
       <% end %>
     <% else %>
-      <%= link_to rooms_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to rooms_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == rooms_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Dashboard
       <% end %>
-      <%= link_to rooms_path, class: "sidebar-btn mx-3" do %>
-        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> See all rooms
-      <% end %>
-      <%= link_to new_room_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to new_room_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_room_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Add new room
       <% end %>
-      <%= link_to bookings_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to bookings_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == bookings_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Previous bookings
       <% end %>
-      <%= link_to root_path, class: "sidebar-btn mx-3" do %>
+      <%= link_to root_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
       <% end %>
     <% end %>

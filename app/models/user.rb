@@ -16,4 +16,13 @@ class User < ApplicationRecord
 
   validates :role, presence: true
 
+  def profile_complete?
+    return false unless first_name.present? &&
+                        last_name.present? &&
+                        username.present? && description.present? &&
+                        identity_number.present? &&
+                        profile_picture.present?
+
+    true
+  end
 end

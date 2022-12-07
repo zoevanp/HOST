@@ -9,21 +9,22 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @room = Room.new
+    if current_user.profile_complete?
+      @room = Room.new
+    else
+      flash[:danger] = 'First, we need more information about yourself. Please fill this form.'
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def create
     @room = Room.new(room_params)
     @room.host_id = current_user.id
-    if @room.host.first_name.present? && @room.host.last_name.present? && @room.host.username.present? && @room.host.description.present? && @room.host.identity_number.present? && @room.host.profile_picture.present?
-      if @room.save
-        redirect_to rooms_path
-      else
-        render :new, status: :unprocessable_entity
-      end
+    
+    if @room.save
+      redirect_to rooms_path
     else
-      flash[:danger] = 'First, we need more information about yourself. Please fill this form.'
-      redirect_to edit_user_path(current_user)
+      render :new, status: :unprocessable_entity
     end
   end
 
