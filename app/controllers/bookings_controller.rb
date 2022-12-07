@@ -16,7 +16,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    if current_user.profile_complete?
+      @booking = Booking.new
+    else
+      flash[:danger] = 'First, we need more information about yourself. Please fill this form.'
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def create
