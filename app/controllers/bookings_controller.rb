@@ -64,9 +64,12 @@ class BookingsController < ApplicationController
     @rooms_available = Room.where(availability: true)
     @bookings_today_desc.each do |booking|
       room_found = find_room(booking, @rooms_available, 0.2)
-      if room_found.present?
+
+      if room_found.present? && room_found.instanceOf(Room)
         booking.update(room: room_found)
         room_found.update(availability: false)
+      else
+        redirect_to error_page_path
       end
     end
     redirect_to bookings_path
@@ -78,6 +81,7 @@ class BookingsController < ApplicationController
       if rooms.near(booking.address, @distance).empty?
         find_room(booking, rooms, @distance + 0.2)
         @distance += 0.2
+
       else
         @result = rooms.near(booking.address, distance).find do |room|
           room.availability && (room.beds - booking.beds) >= 0 && (room.beds - booking.beds) <= 2
