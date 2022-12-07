@@ -1,0 +1,12 @@
+<div class="container chatroom-card mt-2">
+  <% if current_user.role == "host" %>
+    <% if current_user.bookings_as_host.each do |booking| %>
+        <% if booking.chatroom %>
+            <p><%= booking.chatroom.name %></p>
+            <p><%= booking.id %></p>
+            <%= link_to "Go to chat", booking_chatroom_path(booking, booking.chatroom) %>
+        <% end %>
+    <% end %>
+    <% end %>
+  <% end %>
+</div>

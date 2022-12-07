@@ -1,11 +1,7 @@
-<div class="container">
-<% if @chatrooms.exist? %>
-  <% @chatrooms.each do |chatroom| %>
-  <ul>
-  <li><%= chatroom.name %></li>
-  <li><%= chatroom.booking_id %></li>
-  <%= link_to "Show this chat", booking_chatroom_path(Booking.find(chatroom.booking_id), chatroom) %>
-  </ul>
-  <% end %>
-<% end %>
+<div class="rooms-index-row h-100 d-flex">
+    <%= render "shared/interactive_sidebar" %>
+    <div>
+    <h1 style="padding-left: 40px;">Chatrooms</h1>
+    <%= render "shared/chatroomcard" %>
+    </div>
 </div>
