@@ -25,19 +25,7 @@ class BookingsController < ApplicationController
     @booking.departure_date = Date.today + 1
     @booking.refugee_id = current_user.id
     if @booking.refugee.first_name.present? && @booking.refugee.last_name.present? && @booking.refugee.username.present? && @booking.refugee.description.present? && @booking.refugee.identity_number.present? && @booking.refugee.profile_picture.present?
-      @rooms = Room.all
-      @rooms.each do |room|
-        if room.bookings  == []
-          @booking.room_id = room.id
-          room.availability = false
-        elsif (room.bookings.last.departure_date - Date.today).positive?
-          room.availability = false
-        else
-          room.availability = true
-          @booking.room_id = room.id
-        end
-      end
-      # @booking.room_id = Booking.where(room_id: nil)
+      @booking.room_id = Room.where(host_id: User.where(email: "admin@gmail.com"))
       if @booking.save
         redirect_to bookings_path
       else
