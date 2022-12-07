@@ -10,8 +10,13 @@
         <% end %>
         </li>
         <li>
-        <%= link_to new_booking_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_booking_url }" do %>
-        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Ask for a room
+        <% if current_user.bookings_as_refugee.find do |booking| %>
+          <% (Date.today - booking.departure_date).negative? %>
+          <% end %>
+        <% else %>
+          <%= link_to new_booking_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == new_booking_url }" do %>
+          <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Ask for a room
+          <% end %>
         <% end %>
         </li>
         <li>
