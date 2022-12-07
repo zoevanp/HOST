@@ -4,8 +4,8 @@
       <button type="button" class="btn-close m-3" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="modal-body">
           <div class="row">
-          <% @booking.room.room_pictures.each do |picture| %>
-             <div class="col-8 picture-room" style="background-image: url(<%= cl_image_path picture.key%>) ">
+          <% room.room_pictures.each do |picture| %>
+             <div class="col-8 picture-room" style="background-image: url(<%= cl_image_path picture.key %>) ">
               <%#= cl_image_tag @booking.room.room_pictures[0].key %>
              </div>
           <% end %>
