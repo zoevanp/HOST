@@ -65,11 +65,9 @@ class BookingsController < ApplicationController
     @bookings_today_desc.each do |booking|
       room_found = find_room(booking, @rooms_available, 0.2)
 
-      if room_found.present? && room_found.instanceOf(Room)
+      if room_found.present? && room_found.instance_of?(Room)
         booking.update(room: room_found)
         room_found.update(availability: false)
-      else
-        redirect_to error_page_path
       end
     end
     redirect_to bookings_path
