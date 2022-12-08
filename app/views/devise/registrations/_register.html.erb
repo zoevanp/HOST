@@ -21,7 +21,7 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.input :role, collection: User::ROLES %>
+            <%= f.input :role, collection: [["I am searching for a room", "refugee"], ["I am offering a room", "host"]]%>
           </div>
           <div class="form-actions">
           <br>

@@ -5,15 +5,15 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @my_current_bookings = @bookings.select do |booking|
-      booking.host.id == current_user.id || booking.refugee.id == current_user.id
+      booking.host.id == current_user.id || booking.refugee_id == current_user.id
     end
     @my_current_bookings = @my_current_bookings.select do |booking|
       (booking.departure_date - Date.today).positive?
     end
     @my_past_bookings = @bookings.select do |booking|
-      booking.host.id == current_user.id || booking.refugee.id == current_user.id
+      booking.host.id == current_user.id || booking.refugee_id == current_user.id
     end
-    @my_past_bookings = @bookings.select do |booking|
+    @my_past_bookings = @my_past_bookings.select do |booking|
       (booking.departure_date - Date.today).negative?
     end
   end

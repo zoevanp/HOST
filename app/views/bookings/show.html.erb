@@ -3,16 +3,18 @@
 
   <div class ="container">
   <% if current_user.role == "host" %>
-  <h1 class = "booking-show-title"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %></h1>
+    <h2 class = "booking-show-title"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %> thanks you for offering him a room !</h2>
+    <%= link_to "See Profile", user_path(@booking.host)%>
   <% else %>
-  <h1 class = "booking-show-title"><%= @booking.host.first_name%> <%= @booking.host.last_name %></h1>
+  <h1 class = "booking-show-title">Your host for tonight is <%= @booking.host.first_name%> <%= @booking.host.last_name %></h1>
+  <%= link_to "See Profile", user_path(@booking.refugee_id) %>
   <% end %>
 
   <div class="row">
 
 
 
-<div class="col-8">
+<div class="col-8 m-5">
   <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key %>)">
       <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <% if @booking.room.room_pictures %>

@@ -17,7 +17,8 @@
           <% end %>
 
           <% host_chatrooms.compact.each do |chatroom| %>
-            <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
+
+            <p><%= link_to "#{chatroom.booking.refugee.first_name} #{chatroom.booking.refugee.last_name}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
           <% end %>
 
 
@@ -28,7 +29,7 @@
             <% end %>
 
               <% refugee_chatrooms.compact.each do |chatroom| %>
-                <p><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
+                <p><%= link_to "#{chatroom.booking.host.first_name} #{chatroom.booking.host.last_name}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
               <% end %>
 
 
