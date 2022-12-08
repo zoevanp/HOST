@@ -2,7 +2,11 @@
 
   <% if @my_current_bookings.empty? %>
     <div class="my-2">
-        <%= link_to "Add a booking", new_booking_path, class: "empty-arrays-btn text-decoration-none"%>
+      <% if current_user.role == 'refugee' %>
+        <%= link_to "Ask for a room tonight", new_booking_path, class: "empty-arrays-btn text-decoration-none"%>
+      <% else %>
+      <p>You have no bookings for today yet. If you would like to host someone for the night, make sure that you added a room.</p>
+      <% end %>
     </div>
   <% else %>
   <% @my_current_bookings.each do |booking| %>
