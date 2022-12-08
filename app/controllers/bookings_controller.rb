@@ -59,9 +59,10 @@ class BookingsController < ApplicationController
     end
 
     @bookings_today = Booking.where(arrival_date: Date.today)
-    @bookings_today_desc = @bookings.order(beds: :desc)
+    @bookings_today_desc = @bookings_today.order(beds: :desc)
+    @bookings_beds_rating = @bookings_today.left_joins(:review).order("bookings.beds, reviews.rating DESC")
     @rooms_available = Room.where(availability: true)
-    @bookings_today_desc.each do |booking|
+    @bookings_beds_rating.reverse.each do |booking|
       room_found = find_room(booking, @rooms_available, 0.2)
 
       if room_found.present? && room_found.instance_of?(Room)
