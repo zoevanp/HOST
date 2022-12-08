@@ -75,7 +75,7 @@ class BookingsController < ApplicationController
 
   def find_room(booking, rooms, distance)
     @distance = distance
-    if @distance <= 5
+    if @distance <= 10
       if rooms.near(booking.address, @distance).empty?
         find_room(booking, rooms, @distance + 0.2)
         @distance += 0.2
