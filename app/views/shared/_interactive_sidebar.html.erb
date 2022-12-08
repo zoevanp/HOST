@@ -24,6 +24,16 @@
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
         <% end %>
         </li>
+        <li>
+        <%= link_to user_path(current_user), class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> My profile
+        <% end %>
+        </li>
+        <li>
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Log out
+        <% end %>
+        </li>
       </ul>
       <% else %>
       <li class = "iconess"><i class="fa fa-list fa-2x"></i></li>
@@ -46,6 +56,16 @@
         <li>
         <%= link_to chatrooms_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
         <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Messages
+        <% end %>
+        </li>
+        <li>
+        <%= link_to user_path(current_user), class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> My profile
+        <% end %>
+        </li>
+        <li>
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == root_url }" do %>
+        <%= image_tag "Orange Symbol Invisible right.png", class:"sidebar-logosymbol" %> Log out
         <% end %>
         </li>
       </ul>
