@@ -1,5 +1,9 @@
 <div class="grid-cards mt-2">
-
+  <% if @rooms.empty? %>
+    <div class="my-2">
+      <%= link_to "Add a room", new_room_path, class: "empty-arrays-btn text-decoration-none"%>
+    </div>
+  <% else %>
   <% @rooms.each do |room| %>
 
     <div class="card-index-room">
@@ -30,4 +34,5 @@
 
     </div>
      <% end %>
+  <% end %>
 </div>
