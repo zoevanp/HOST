@@ -1,9 +1,6 @@
-<div class = " chat-area" ></div>
-
+<div class ="chat-area"></div>
   <div class = "chat-main-menu">
-    <h5 class = "chat-title ">
-    CHAT
-    </h5>
+    <%= image_tag "White Symbol Invisible Up.png", class:"chatbar-logosymbol" %> &nbsp; CLICK TO CHAT
       <% if current_user.role == 'host' %>
         <% host_chatrooms = current_user.bookings_as_host.map do |booking| %>
           <% booking.chatroom %>

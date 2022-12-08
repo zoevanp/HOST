@@ -36,11 +36,7 @@
 
         <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
-
     </div>
-
-<%= render "shared/interactive_chat" %>
-
   <button type="button" id="buttonRating" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#ratingModal"></button>
     <% if current_user.role == 'host' %>
     <% if @booking.review.nil? && (@booking.departure_date - Date.today).negative? %>

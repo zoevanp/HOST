@@ -12,7 +12,7 @@
         <i class="fa-solid fa-user pe-2"></i><p> <%= @user.username %></p>
         <div class="edit-profile-btn">
           <% if @user.id == current_user.id %>
-            <%= link_to "Edit", edit_user_path(@user), class: "universal-button mt-3" %>
+            <%= link_to "Edit", edit_user_path(@user), class: "universal-button mt-3 px-3 py-2" %>
           <% end %>
         </div>
       </div>

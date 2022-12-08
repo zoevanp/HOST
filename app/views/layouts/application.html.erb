@@ -45,6 +45,7 @@
         <main id="main-content" class="position-relative">
           <% if (controller_name == "bookings" && action_name == "index") || (controller_name == "bookings" && action_name == "show") || (controller_name == "chatrooms" && action_name == "index") || (controller_name == "rooms" && action_name == "index") || (controller_name == "rooms" && action_name == "show") || (controller_name == "users" && action_name == "show") %>
             <%= render 'shared/interactive_sidebar' %>
+            <%= render 'shared/interactive_chat' %>
           <% end %>
           <%= yield %>
         </main>

@@ -3,4 +3,4 @@
 //= link_tree ../builds
 //= link(White Logo Invisible.png)
 //= link application.css
-//= link Orange Symbol Invisible left.png
+//= link(Orange Symbol Invisible left.png)
