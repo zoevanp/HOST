@@ -60,7 +60,6 @@ class BookingsController < ApplicationController
 
     @bookings_today = Booking.where(arrival_date: Date.today)
     @bookings_today_desc = @bookings.order(beds: :desc)
-    raise
     @rooms_available = Room.where(availability: true)
     @bookings_today_desc.each do |booking|
       room_found = find_room(booking, @rooms_available, 0.2)
