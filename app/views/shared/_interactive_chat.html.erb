@@ -6,13 +6,13 @@
           <% booking.chatroom %>
         <% end %>
         <% host_chatrooms.compact.each do |chatroom| %>
-          <p><strong><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
 
-          <% if chatroom %>
-          <p><%= chatroom.messages.last.content %></p>
-
-          <% end %>
+          <p><strong><%= link_to "#{chatroom.booking.refugee.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
+          <% if chatroom.messages.empty? %>
+          <% else %>
+            <p><%= chatroom.messages.first.content %></p>
           <hr>
+          <% end %>
         <% end %>
       <% else %>
         <% refugee_chatrooms = current_user.bookings_as_refugee.map do |booking| %>
@@ -22,5 +22,4 @@
           <p><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></p>
         <% end %>
       <% end %>
-
   </div>
