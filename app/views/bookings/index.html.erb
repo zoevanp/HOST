@@ -6,12 +6,9 @@
   <% end %>
     <h1 style="padding-left: 40px;">All Bookings</h1>
     <%= render "shared/refugeecardgrid" %>
-    <hr class="hr-line-bookings"style="padding-left:50px">
+    <%= render "shared/interactive_chat"%>
+    <hr class= "hr-line-bookings" style="padding-left:50px">
     <h1 style="padding-left: 40px;">Past Bookings</h1>
     <%= render "shared/pastbookings" %>
-    <%= link_to "#", data: {bs_toggle: "modal", bs_target:"#chatModal"} do  %>
-                    <span class="dot"><p id="chat">CHAT</p></span>
-                <% end %>
   </div>
 </div>
-<%= render "shared/chat_modal" %>
