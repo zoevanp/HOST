@@ -1,0 +1,27 @@
+<div class="chat-area"></div>
+  <nav class = "chat-main-menu">
+    <p>CHAT</p>
+          <%# Current user is a host %>
+        <% if current_user.role == 'host' %>
+          <% host_chatrooms = @booking.host.bookings_as_host.map do |booking| %>
+          <% booking.chatroom %>
+          <% end %>
+
+          <% host_chatrooms.compact.each do |chatroom| %>
+            <p class = 'the-chatrooms'><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;" %></p>
+          <% end %>
+
+
+          <%# Current user is a refugee %>
+         <% else %>
+          <% refugee_chatrooms = @booking.refugee.bookings_as_refugee.map do |booking| %>
+            <% booking.chatroom %>
+          <% end %>
+
+          <% refugee_chatrooms.compact.each do |chatroom| %>
+            <p class = 'the-chatrooms'><%= link_to "#{current_user.username}", booking_chatroom_path(@booking, chatroom), style: "text-decoration: none; color: black;"%></p>
+          <% end %>
+
+
+        <% end %>
+  </nav>
