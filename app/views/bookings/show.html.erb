@@ -37,13 +37,6 @@
       <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
     </div>
-    <div class="col-2">
-
-    <% if @booking.status && @booking.status_refugee && @booking.chatroom %>
-      <%= link_to "Messages", booking_chatroom_path(@booking, @booking.chatroom) %>
-    <% end %>
-
-  </div>
 
         <%= link_to "#", data: {bs_toggle: "modal", bs_target:"#chatModal"} do  %>
             <span class="dot"><p id="chat">CHAT</p></span>
