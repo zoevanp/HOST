@@ -1,5 +1,7 @@
 <!-- app/views/chatrooms/show.html.erb -->
-<div class="container chatroom"
+<div class="chatroom container-error-edit d-flex justify-content-center col-12 col-sm-4 h-100 w-100 position-relative">
+<%= render "shared/back_button" %>
+<div class = "error-card justify-content-center chat-w color-white"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value= "<%= current_user.id %>">
@@ -16,12 +18,12 @@
   </div>
 
   <%= simple_form_for [@booking, @chatroom, @message],
-   html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+   html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex message-type-box" } do |f| %>
     <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "flex-grow-1"}%>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.submit "Send", class: "messages-button universal-button" %>
   <% end %>
-
+  </div>
 </div>

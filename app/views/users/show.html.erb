@@ -1,8 +1,7 @@
-<% if current_user.id == @user.id %>
-  <div class="rooms-index-row h-100 d-flex">
+<div class="rooms-index-row h-100 d-flex">
       <%= render "shared/interactive_sidebar" %>
         <div class="container">
-            <h1 style="padding-left: 10px;">My Profile</h1>
+            <h1 style="padding-left: 10px;"> <%= @user.first_name %>'s Profile</h1>
               <div class="col-8" style="margin-bottom: 100px">
               </div>
               <div class="user-profile-image">
@@ -46,5 +45,4 @@
               <% end %>
           </div>
       </div>
-  </div>
-<% end %>
+</div>
