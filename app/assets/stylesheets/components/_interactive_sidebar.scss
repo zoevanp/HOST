@@ -45,6 +45,11 @@
  /*  -webkit-transition:width .05s linear;
   transition:width .05s linear; */
   z-index:1000;
+  img {
+    height: 20px;
+    width: 20px;
+    margin-top: 5px;
+  }
 }
 
 .main-menu>ul {

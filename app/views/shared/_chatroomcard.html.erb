@@ -1,11 +1,13 @@
-<div class="d-flex">
-  <div class="container chatroom-card">
+<div class="d-flex chatroom-center">
+  <div class="container mt-5">
     <% if current_user.role == "host" %>
       <% if current_user.bookings_as_host.each do |booking| %>
         <% if booking.chatroom %>
-          <p><%= booking.chatroom.name %></p>
-          <p><%= booking.id %></p>
+        <div>
+          <p><%= booking.refugee.username %></p>
           <%= link_to "Go to chat", booking_chatroom_path(booking, booking.chatroom) %>
+          <hr>
+          </div>
         <% end %>
       <% end %>
     <% end %>
@@ -13,7 +15,7 @@
     <% if current_user.role == "refugee" %>
       <% if current_user.bookings_as_refugee.each do |booking| %>
         <% if booking.chatroom %>
-          <p><%= booking.chatroom.name %></p>
+          <p><%= booking.host.username%></p>
           <p><%= booking.id %></p>
           <%= link_to "Go to chat", booking_chatroom_path(booking, booking.chatroom) %>
         <% end %>

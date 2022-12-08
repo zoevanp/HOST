@@ -1,23 +1,16 @@
-<div class = " chat-area" ></div>
-
+<div class ="chat-area"></div>
   <div class = "chat-main-menu">
-    <h5 class = "chat-title ">
-    CHAT
-    </h5>
+    <%= image_tag "White Symbol Invisible Up.png", class:"chatbar-logosymbol" %> &nbsp; CLICK TO CHAT
       <% if current_user.role == 'host' %>
         <% host_chatrooms = current_user.bookings_as_host.map do |booking| %>
           <% booking.chatroom %>
         <% end %>
         <% host_chatrooms.compact.each do |chatroom| %>
           <p><strong><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
-          <% if chatroom.messages.empty? %>
-            <% if current_user.role == 'host' %>
-              <% chatroom.booking.refugee %>
-            <% else %>
-              <% chatroom.booking.host %>
-            <% end %>
-          <% else %>
-            <p><%= chatroom.messages.last.content %></p>
+
+          <% if chatroom %>
+          <p><%= chatroom.messages.last.content %></p>
+
           <% end %>
           <hr>
         <% end %>

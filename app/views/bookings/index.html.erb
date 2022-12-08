@@ -1,12 +1,10 @@
-<div class="rooms-index-row h-100 d-flex">
-  <%= render "shared/interactive_sidebar" %>
+<div class="rooms-index-row h-100 d-flex ms-5">
   <div>
   <% if current_user.email == "admin@gmail.com" %>
     <%= button_to "Create Bookings", bookings_update_path, method: :patch %>
   <% end %>
     <h1 style="padding-left: 40px;">All Bookings</h1>
     <%= render "shared/refugeecardgrid" %>
-    <%= render "shared/interactive_chat"%>
     <hr class= "hr-line-bookings" style="padding-left:50px">
     <h1 style="padding-left: 40px;">Past Bookings</h1>
     <%= render "shared/pastbookings" %>

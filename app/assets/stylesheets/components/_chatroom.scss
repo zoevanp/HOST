@@ -1,5 +1,5 @@
-.messages {
-  //max-width: 1000px;
+.chatroom-center{
+  justify-content: center;
 }
 
 .message-row {
@@ -14,18 +14,19 @@
   padding:8px;
   min-height:80px;
   font-size: 18px;
-  color: white;
-  p {
-  color: white !important;
-  }
 }
 
 .sender-style {
   background-color: $mainorange;
+  color: white !important;
+  p {
+    color: white !important;
+    }
 }
 
 .receiver-style {
   background-color: $lightorange;
+  color: black !important;
 }
 
 
