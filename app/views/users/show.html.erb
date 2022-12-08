@@ -3,55 +3,48 @@
       <%= render "shared/interactive_sidebar" %>
         <div class="container">
             <h1 style="padding-left: 10px;">My Profile</h1>
-              <div class="edit-profile-btn">
-            <% if @user.id == current_user.id %>
-              <%= link_to "Edit", edit_user_path(@user), class: "btn universal-button mt-3" %>
-            <% end %>
-
-
-
-          <div class="col-8" style="margin-bottom: 100px">
+              <div class="col-8" style="margin-bottom: 100px">
               </div>
-
-          <div class="user-profile-image">
-            <% if @user.profile_picture.attached? %>
-              <%= cl_image_tag @user.profile_picture.key, width: 200, height: 200, crop: :fill %>
+              <div class="user-profile-image">
+                <% if @user.profile_picture.attached? %>
+                  <%= cl_image_tag @user.profile_picture.key, width: 200, height: 200, crop: :fill %>
+                <% else %>
+                  <%= image_tag "https://unsplash.com/photos/Cecb0_8Hx-o", width: 200, height: 200, class:"m-2" %>
+                <% end %>
+                  <div class="user-username mt-3">
+                    <div class="icon-user">
+                    <i class="fa-solid fa-user pe-2"></i><p> <%= @user.username %></p>
+                  </div>
+                  <div class="edit-profile-btn">
+                <% if @user.id == current_user.id %>
+                  <%= link_to "Edit", edit_user_path(@user), class: "btn universal-button mt-3" %>
+                <% end %>
+                </div>
+              </div>
+              <div class="card-profile">
+                <div class="card-user-info m-3">
+                  <div class="card-name-id-user-info">
+                      <strong><p>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+                  </div>
+                  <div class="card-bio-id-user-info">
+                    <p><strong>Bio:</strong> <%= @user.description %></p>
+                  </div>
+                </div>
+              </div>
+            <% if current_user.role == "host" %>
+              <div class="map-card m-3">
+                <div style="width: 70%; height: 300px; border-radius:6px;"
+                  data-controller="map"
+                  data-map-markers-value="<%= @markers.to_json %>"
+                  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div>
+              </div>
             <% else %>
-              <%= image_tag "https://unsplash.com/photos/Cecb0_8Hx-o", width: 200, height: 200, class:"m-2" %>
-            <% end %>
-              <div class="user-username mt-3">
-                <div class="icon-user">
-                <i class="fa-solid fa-user pe-2"></i><p> <%= @user.username %></p>
-              </div>
-            </div>
+            <%# <script type="text/javascript">
+              window.location.href="/error_page"
+            </script> %>
+              <% end %>
           </div>
-
-          <div class="card-profile">
-            <div class="card-user-info m-3">
-              <div class="card-name-id-user-info">
-                  <strong><p>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
-              </div>
-              <div class="card-bio-id-user-info">
-                <p><strong>Bio:</strong> <%= @user.description %></p>
-              </div>
-            </div>
-          </div>
-
-          <% if current_user.role == "host" %>
-            <div class="map-card m-3">
-              <div style="width: 70%; height: 300px; border-radius:6px;"
-                data-controller="map"
-                data-map-markers-value="<%= @markers.to_json %>"
-                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-              </div>
-            </div>
-          <% else %>
-          <%# <script type="text/javascript">
-            window.location.href="/error_page"
-          </script> %>
-            <% end %>
-        </div>
-
       </div>
   </div>
 <% end %>
