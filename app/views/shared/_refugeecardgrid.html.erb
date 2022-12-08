@@ -1,5 +1,10 @@
 <div class="grid-cards mt-2">
 
+  <% if @my_current_bookings.empty? %>
+    <div class="my-2">
+        <%= link_to "Add a booking", new_booking_path, class: "empty-arrays-btn text-decoration-none"%>
+    </div>
+  <% else %>
   <% @my_current_bookings.each do |booking| %>
     <div class="card-index-room">
 
@@ -58,5 +63,6 @@
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>

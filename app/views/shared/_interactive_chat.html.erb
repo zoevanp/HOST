@@ -1,0 +1,25 @@
+<div class = " chat-area" ></div>
+
+  <div class = "chat-main-menu">
+    <h5 class = "chat-title ">
+    CHAT
+    </h5>
+      <% if current_user.role == 'host' %>
+        <% host_chatrooms = current_user.bookings_as_host.map do |booking| %>
+          <% booking.chatroom %>
+        <% end %>
+        <% host_chatrooms.compact.each do |chatroom| %>
+          <p><strong><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
+          <p><%= chatroom.messages.last.content %></p>
+          <hr>
+        <% end %>
+      <% else %>
+        <% refugee_chatrooms = current_user.bookings_as_refugee.map do |booking| %>
+          <% booking.chatroom %>
+        <% end %>
+        <% refugee_chatrooms.compact.each do |chatroom| %>
+          <p><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></p>
+        <% end %>
+      <% end %>
+
+  </div>

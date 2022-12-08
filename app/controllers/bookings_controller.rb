@@ -1,6 +1,5 @@
 require 'date'
 class BookingsController < ApplicationController
-  @update_bookings
 
   def index
     @bookings = Booking.all
