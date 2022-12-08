@@ -18,7 +18,12 @@
           <% booking.chatroom %>
         <% end %>
         <% refugee_chatrooms.compact.each do |chatroom| %>
-          <p><%= link_to "#{current_user.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></p>
+          <p><strong><%= link_to "#{chatroom.booking.host.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></strong></p>
+          <% if chatroom.messages.empty? %>
+          <% else %>
+            <p><%= chatroom.messages.last.content %></p>
+          <hr>
+          <% end %>
         <% end %>
       <% end %>
   </div>
