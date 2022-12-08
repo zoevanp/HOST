@@ -1,5 +1,4 @@
-<div class="rooms-index-row h-100 d-flex">
-  <%= render "shared/interactive_sidebar" %>
+<div class="rooms-index-row h-100 d-flex ms-5">
 
   <div class ="container">
   <% if current_user.role == "host" %>
@@ -13,7 +12,6 @@
     <div class="show-profile-link-refugee d-flex pt-3" style="padding-left: 50px;">
       <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.host), class: "btn universal-button" %>
     </div>
-
   <% end %>
 
   <div class="row">

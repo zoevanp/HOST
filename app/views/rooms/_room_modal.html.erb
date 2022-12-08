@@ -5,7 +5,7 @@
         <div class="modal-body">
           <div class="row">
           <% room.room_pictures.each do |picture| %>
-             <div class="col-8 picture-room" style="background-image: url(<%= cl_image_path picture.key %>) ">
+             <div class="col-10 picture-room" style="background-image: url(<%= cl_image_path picture.key %>) ">
               <%#= cl_image_tag @booking.room.room_pictures[0].key %>
              </div>
           <% end %>

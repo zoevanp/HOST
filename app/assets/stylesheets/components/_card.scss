@@ -37,11 +37,17 @@
 }
 
 .card-profile {
-  display: flex;
   border-radius: 6px;
   border: 1px solid $mainorange;
-  margin: 20px;
-  max-width: 800px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+  text-align: start;
+  width: 100%;
+  display: inline-block;
+  p {
+    margin: 20px;
+  }
 }
 
 .chatroom-card {
@@ -58,31 +64,18 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-left: 300px;
   img {
     border-radius: 50%;
   }
 }
 
 .edit-profile-btn {
-
   align-items: left;
   justify-content: center;
 }
 
-.card-name-id-user-info {
-  display: flex;
-  justify-content: left;
-  margin-bottom: 5px;
-}
-
-.card-bio-id-user-info{
-  display: flex;
-  justify-content: left;
-  text-align: justify;
-}
-
 .rooms-index-row {
+  margin-left: 147px !important;
   h1 {
     color: #FF5D00;
   }
@@ -92,6 +85,8 @@
   object-fit: cover;
   object-position: center;
 }
+
+
 
 .booking-show-title{
   padding-left: 20px;
