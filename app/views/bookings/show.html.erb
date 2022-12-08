@@ -4,10 +4,10 @@
   <div class ="container">
   <% if current_user.role == "host" %>
     <h2 class = "booking-show-title"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %> thanks you for offering him a room !</h2>
-    <%= link_to "See Profile", user_path(@booking.host)%>
+    <%= link_to "See Profile", user_path(@booking.refugee)%>
   <% else %>
   <h1 class = "booking-show-title">Your host for tonight is <%= @booking.host.first_name%> <%= @booking.host.last_name %></h1>
-  <%= link_to "See Profile", user_path(@booking.refugee_id) %>
+  <%= link_to "See Profile", user_path(@booking.host) %>
   <% end %>
 
   <div class="row">
