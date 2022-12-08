@@ -2,7 +2,9 @@
   <div class="area"></div>
     <nav class="main-menu">
       <% if current_user.role == 'refugee' %>
-        <li class = "iconess"><i class="fa fa-list fa-2x"></i></li>
+        <li class = "iconess">
+        <%= image_tag "White Symbol Invisible Right.png", class:"sidebar-logosymbol" %>
+        <i class="fa fa-list fa-2x"></i></li>
       <ul>
         <li>
         <%= link_to bookings_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == bookings_url }" do %>
@@ -36,7 +38,9 @@
         </li>
       </ul>
       <% else %>
-      <li class = "iconess"><i class="fa fa-list fa-2x"></i></li>
+      <li class = "iconess">
+      <%= image_tag "White Symbol Invisible Right.png", class:"sidebar-logosymbol" %>
+      <i class="fa fa-list fa-2x"></i></li>
       <ul>
         <li>
         <%= link_to rooms_path, class: "sidebar-btn mx-3 #{"active-sidebar" if request.original_url == rooms_url }" do %>

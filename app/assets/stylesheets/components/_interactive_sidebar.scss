@@ -22,7 +22,9 @@
   background: $lightorange;
   .fa {
     color: $mainorange;
-    padding-left: 200px;
+    //padding-left: unset;
+    padding-left: 20px;
+    padding-bottom: 15px;
   }
 }
 
