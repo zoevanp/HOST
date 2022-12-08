@@ -88,6 +88,11 @@
   }
 }
 
+.image-card {
+  object-fit: cover;
+  object-position: center;
+}
+
 .booking-show-title{
   padding-left: 20px;
 }

@@ -3,17 +3,20 @@
 
   <div class ="container">
   <% if current_user.role == "host" %>
-    <h2 class = "booking-show-title"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %> thanks you for offering him a room !</h2>
-    <%= link_to "See Profile", user_path(@booking.host)%>
+
+    <h2 class="booking-show-title" style="padding-left: 50px; color:#FF5D00;"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %> <strong>thanks you</strong> for offering a room!</h2>
+    <div class="show-profile-link-host d-flex pt-3" style="padding-left: 50px;">
+      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.refugee), class: "btn universal-button" %>
+    </div>
   <% else %>
-  <h1 class = "booking-show-title">Your host for tonight is <%= @booking.host.first_name%> <%= @booking.host.last_name %></h1>
-  <%= link_to "See Profile", user_path(@booking.refugee_id) %>
+    <h2 class="booking-show-title" style="padding-left: 50px;">Your host for tonight is <%= @booking.host.first_name%> <%= @booking.host.last_name %></h2>
+    <div class="show-profile-link-refugee d-flex pt-3" style="padding-left: 50px;">
+      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.host), class: "btn universal-button" %>
+    </div>
+
   <% end %>
 
   <div class="row">
-
-
-
 <div class="col-8 m-5">
   <div class="bookings-images-container position-relative" style="background-image: url(<%= cl_image_path @booking.room.room_pictures.first.key %>)">
       <button type="button" class="room-photo-btn w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -27,15 +30,15 @@
           <%= render "bookings/images_modal", booking: @booking %>
       </div>
     </div>
-        <div class="booking-info mt-3">
-      <%#= @booking.room_id %>
+    <div class="booking-info mt-3">
+
       <% if @booking.host.first_name && @booking.host.last_name %>
-      <i class="fa-regular fa-user ps-5 pe-2"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %>
+        <i class="fa-regular fa-user ps-5 pe-2"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %>
       <% end %>
-      <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
-      <%# <i class="fa-solid fa-person-shelter ps-5 pe-2" style="color: #FF5D00;"></i>Guest ID: <%= @booking.refugee_id %>
-      <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
+
+        <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
+
     </div>
 
 <%= render "shared/interactive_chat" %>
@@ -47,8 +50,5 @@
     <% end %>
           </div>
           </div>
-
-
     <% end %>
-
 </div>
