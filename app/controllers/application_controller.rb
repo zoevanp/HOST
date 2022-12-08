@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource_or_scope)
     current_user.role == "refugee" ? bookings_path : rooms_path
-  end 
+  end
 
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
