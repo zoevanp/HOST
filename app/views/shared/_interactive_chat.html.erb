@@ -6,6 +6,7 @@
           <% booking.chatroom %>
         <% end %>
         <% host_chatrooms.compact.each do |chatroom| %>
+
           <p><strong><%= link_to "#{chatroom.booking.refugee.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
           <% if chatroom.messages.empty? %>
           <% else %>
