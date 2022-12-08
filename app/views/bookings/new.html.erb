@@ -5,8 +5,8 @@
           <br>
               <%= simple_form_for [@booking] do |f|%>
                   <%= f.input :beds %>
-                  <%= f.input :address,
-                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                  <%= f.input :address required: true,
+                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none form-control", required: true },
                         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
                         <br>
                   <%= f.button :submit, "Book", class: "universal-button px-3 py-2" %>
