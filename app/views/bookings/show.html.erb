@@ -6,12 +6,12 @@
 
     <h2 class="booking-show-title" style="padding-left: 50px; color:#FF5D00;"><%= @booking.refugee.first_name%> <%= @booking.refugee.last_name %> <strong>thanks you</strong> for offering a room!</h2>
     <div class="show-profile-link-host d-flex pt-3" style="padding-left: 50px;">
-      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.host), class: "btn universal-button" %>
+      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.refugee), class: "btn universal-button" %>
     </div>
   <% else %>
-    <h1 class="booking-show-title" style="padding-left: 50px;">Your <strong>Host</strong> for tonight is: <%= @booking.host.first_name%> <%= @booking.host.last_name %>!</h1>
+    <h2 class="booking-show-title" style="padding-left: 50px;">Your host for tonight is <%= @booking.host.first_name%> <%= @booking.host.last_name %></h2>
     <div class="show-profile-link-refugee d-flex pt-3" style="padding-left: 50px;">
-      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.refugee_id), class: "btn universal-button" %>
+      <i class="fa-regular fa-user ps-1 pe-2"></i><%= link_to "See Profile", user_path(@booking.host), class: "btn universal-button" %>
     </div>
 
   <% end %>
@@ -31,12 +31,11 @@
       </div>
     </div>
     <div class="booking-info mt-3">
-      <%#= @booking.room_id %>
+
       <% if @booking.host.first_name && @booking.host.last_name %>
         <i class="fa-regular fa-user ps-5 pe-2"></i> Host: <%= @booking.host.first_name + " " + @booking.host.last_name %>
       <% end %>
-      <%# <p><%= image_tag "fa-thin fa-user.png", Host: @booking.host.first_name + " " + @booking.host.last_name %></p>
-      <%# <i class="fa-solid fa-person-shelter ps-5 pe-2" style="color: #FF5D00;"></i>Guest ID: <%= @booking.refugee_id %>
+
         <i class="fa-solid fa-calendar ps-5 pe-2"></i><p>Arrival & Departure Dates: <%= @booking.arrival_date %> | <%= @booking.departure_date %></p>
     </div>
 
