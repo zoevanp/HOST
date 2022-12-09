@@ -22,19 +22,42 @@
     p{
       text-align: justify;
     }
+    .message-bubbles {
+      display: none;
+    }
 }
 
 .chat-main-menu:hover{
   background-color: $lightorange;
   color: black;
   height: 400px;
-
-  h5{
-    color: $mainorange;
+  img {
+    display: none;
+  }
+  .message-bubbles {
+    display: list-item;
   }
 }
 
 .chatbar-logosymbol {
   width: 20px;
   height: 20px;
+  margin-bottom: 3px;
+}
+
+.message-bubbles {
+  display: flex;
+  display: inline-flex;
+  border-radius: 5px;
+  border: 1px solid $mainorange;
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.chatheader {
+  margin-bottom: 5px;
+  font-size: 20px;
+  text-decoration: solid;
 }
