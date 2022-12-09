@@ -1,31 +1,29 @@
 <div class ="chat-area"></div>
   <div class = "chat-main-menu">
-    <div class="chatheader">
-      <%= image_tag "White Symbol Invisible Up.png", class:"chatbar-logosymbol" %>&nbsp; CHAT
-    </div>
-        <% if current_user.role == 'host' %>
-          <% host_chatrooms = current_user.bookings_as_host.map do |booking| %>
-            <% booking.chatroom %>
-          <% end %>
-          <% host_chatrooms.compact.each do |chatroom| %>
-          <div class="message-bubbles">
-            <p><strong><%= link_to "#{chatroom.booking.refugee.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
-            <% unless chatroom.messages.empty? %>
-                <p><strong>Last Message: </strong><%= chatroom.messages.last.content %></p>
-            <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <% refugee_chatrooms = current_user.bookings_as_refugee.map do |booking| %>
-            <% booking.chatroom %>
-          <% end %>
-          <% refugee_chatrooms.compact.each do |chatroom| %>
-          <div class="message-bubbles">
-            <p><strong><%= link_to "#{chatroom.booking.host.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></strong></p>
-            <% unless chatroom.messages.empty? %>
-                <p><strong>Last Message: </strong><%= chatroom.messages.last.content %></p>
-            <% end %>
-            </div>
+    <%= image_tag "White Symbol Invisible Up.png", class:"chatbar-logosymbol" %> &nbsp; CHAT
+      <% if current_user.role == 'host' %>
+        <% host_chatrooms = current_user.bookings_as_host.map do |booking| %>
+          <% booking.chatroom %>
+        <% end %>
+        <% host_chatrooms.compact.each do |chatroom| %>
+          <p><strong><%= link_to "#{chatroom.booking.refugee.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
+          <% if chatroom.messages.empty? %>
+          <% else %>
+            <p><%= chatroom.messages.last.content %></p>
+          <hr>
           <% end %>
         <% end %>
+      <% else %>
+        <% refugee_chatrooms = current_user.bookings_as_refugee.map do |booking| %>
+          <% booking.chatroom %>
+        <% end %>
+        <% refugee_chatrooms.compact.each do |chatroom| %>
+          <p><strong><%= link_to "#{chatroom.booking.host.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></strong></p>
+          <% if chatroom.messages.empty? %>
+          <% else %>
+            <p><%= chatroom.messages.last.content %></p>
+          <hr>
+          <% end %>
+        <% end %>
+      <% end %>
   </div>
