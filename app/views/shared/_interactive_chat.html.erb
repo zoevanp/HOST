@@ -11,7 +11,7 @@
           <div class="message-bubbles">
             <p><strong><%= link_to "#{chatroom.booking.refugee.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;" %></strong></p>
             <% unless chatroom.messages.empty? %>
-                <p><strong>Last Message: </strong><%= chatroom.messages.last.content %></p>
+                <p><%= chatroom.messages.last.content %></p>
             <% end %>
             </div>
           <% end %>
@@ -23,7 +23,7 @@
           <div class="message-bubbles">
             <p><strong><%= link_to "#{chatroom.booking.host.username}", booking_chatroom_path(chatroom.booking, chatroom), style: "text-decoration: none; color: black;"%></strong></p>
             <% unless chatroom.messages.empty? %>
-                <p><strong>Last Message: </strong><%= chatroom.messages.last.content %></p>
+                <p><%= chatroom.messages.last.content %></p>
             <% end %>
             </div>
           <% end %>
